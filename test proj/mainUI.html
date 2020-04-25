@@ -4,6 +4,12 @@
 <head>
   <link rel="stylesheet" href="styles.css">
   <script src="mainUI.js"></script>
+  <script defer src="./firebase-app.js"></script>
+
+  <script defer src="./firebase-auth.js"></script>
+  <script defer src="./firebase-firestore.js"></script>
+  <script defer src="js/init-firebase.js"></script>
+
 </head>
 
 <body>
@@ -25,6 +31,23 @@
   <div>
     <a href="#" id="tabHeroMainNavigationButton" class="btn btn-sm animated-button thar-one">My Tab Hero</a>
   </div>
+
+  <h1>Login</h1>
+  <form>
+    <div class="form-row">
+      <input type="text" title="Email" id="email" placeholder="Email" />
+    </div>
+    <div class="form-row">
+      <input type="password" title="password" id="password" placeholder="Password" />
+    </div>
+    <div class="form-row">
+      <button type="button" class="btn" id="formButton">Login</button>
+    </div>
+  </form>
+  <button type="button" class="btn" id="googleButton">Google Sign in</button>
+  
+
+<script src="js/auth.js"></script>
 </body>
 
 </html>

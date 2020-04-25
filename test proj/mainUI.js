@@ -57,7 +57,7 @@ function main() {
   })
 
   function newPageNavigation() {
-    chrome.tabs.create({ url: 'file:///C:/Users/Amit/Desktop/test%20proj/shattered%20animation%20stuff/shattering-text-animation/index.html' });
+    chrome.tabs.create({ url: 'file://./shattered%20animation%20stuff/shattering-text-animation/index.html' });
   }
 
   //this function specifies what to do when the save toCOllection button is hit.
