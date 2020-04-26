@@ -1,2 +1,4 @@
 # TabHero
-blah blah blah
+
+
+TabHero is a Chrome extension for tab management.
