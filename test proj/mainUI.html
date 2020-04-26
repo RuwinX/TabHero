@@ -2,13 +2,12 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="styles.css">
-  <script src="mainUI.js"></script>
-  <script defer src="./firebase-app.js"></script>
-
-  <script defer src="./firebase-auth.js"></script>
-  <script defer src="./firebase-firestore.js"></script>
-  <script defer src="js/init-firebase.js"></script>
+  <link rel="stylesheet" href="./resources/css/styles.css">
+  <script src="./resources/js/mainUI.js"></script>
+  <script defer src="./resources/js/firebase/firebase-app.js"></script>
+  <script defer src="./resources/js/firebase/firebase-auth.js"></script>
+  <script defer src="./resources/js/firebase/firebase-firestore.js"></script>
+  <script defer src="./resources/js/firebase/init-firebase.js"></script>
 
 </head>
 
@@ -41,13 +40,13 @@
       <input type="password" title="password" id="password" placeholder="Password" />
     </div>
     <div class="form-row">
-      <button type="button" class="btn" id="formButton">Login</button>
+      <button type="button" class="btn" id="formButtonForSignUp">Sign Up</button>
     </div>
   </form>
   <button type="button" class="btn" id="googleButton">Google Sign in</button>
   
 
-<script src="js/auth.js"></script>
+<script src="./resources/js/firebase/auth.js"></script>
 </body>
 
 </html>
