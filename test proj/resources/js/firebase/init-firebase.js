@@ -10,3 +10,6 @@
   };
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+// Initialize CLoud Firebase DB
+var db = firebase.firestore();

@@ -33,11 +33,21 @@ function main() {
       else {
         var tagValue = document.getElementById("collectionNameInput").value.trim();
         tabCollectionData[tagValue] = arrayOfTabs;
-        tabKeyRepo.unshift(tagValue);
+        tabKeyRepo.unshift("tagValue");
       }
       //setting the data into the local storage using chrome APIS
       chrome.storage.local.set(tabCollectionData);
       chrome.storage.local.set({ 'collectionKeys': tabKeyRepo });
+
+      //experimental code that uses the cloud firebase var db [created in init-firebase.js to push data into the cloud DB]
+      db.collection("collectionName").add(tabCollectionData)
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+    
 
     });
   }
