@@ -11,6 +11,14 @@ TabHero is a Chrome extension for tab management.
 
 The `public` folder is where the svelte-built chrome extension lives. The html files there should reference the svelte js bundles. Hot-reloading isn't set up yet. So to develop, run `npm run build` to build the app, and reload the extension. Once hot-reloading is set up, it will allow us to develop simply by running `npm run dev`, without needing to reload the extension.
 
+### Storybook
+
+The view can be developed in isolation in storybook. Hot-reloading supported.
+
+```
+npm run storybook
+```
+
 ## TODO
 
 - move images assets to public
