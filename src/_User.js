@@ -24,7 +24,7 @@ class User {
     getCollectionTags(collectionId) {
         let tags = [];
         this.collections.get(collectionId).urls.forEach(url => {
-            tags = tags.concat(Array.from(this.url_tags.get(url))); // make more fluent?
+            tags = [...tags, ...this.url_tags.get(url)];
         });
         return tags;
     }
