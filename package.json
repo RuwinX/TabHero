@@ -25,6 +25,7 @@
     "svelte-loader": "^2.13.6"
   },
   "dependencies": {
+    "lodash-es": "^4.17.15",
     "sirv-cli": "^0.4.4"
   }
 }

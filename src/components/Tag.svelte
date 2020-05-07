@@ -1,9 +1,10 @@
 <style>
     .container {
+        background-color: white;
         border: solid 0.5px #146cdb;
         border-radius: 13px;
         cursor: pointer;
-        min-width: min-content;
+        width: 20ch;  /* few ch higher than .text width */
     }
     .container.added {
         background-color: #146cdb;
