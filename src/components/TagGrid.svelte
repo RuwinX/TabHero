@@ -19,39 +19,22 @@
 
     .row {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
     .row:not(:last-of-type) {
         margin-bottom: 1rem;
-    }
-
-    .cell {
-        width: 50%;
-    }
-
-    .center {
-        max-width: max-content;
-        margin: auto;
     }
 </style>
 
 <div class="container">
     {#each rows as [first, second]}
         <div class="row">
-            <div class="cell">
-                <div class="center">
-                    {#if first}
-                        <Tag text={first.text} added={first.added} />
-                    {/if}
-                </div>
-            </div>
-            <div class="cell">
-                <div class="center">
-                    {#if second}
-                        <Tag text={second.text} added={second.added} />
-                    {/if}
-                </div>
-            </div>
+            {#if first}
+                <Tag text={first.text} added={first.added} />
+            {/if}
+            {#if second}
+                <Tag text={second.text} added={second.added} />
+            {/if}
         </div>
     {/each}
 </div>
