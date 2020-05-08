@@ -15,6 +15,7 @@
         color: #146cdb;
         text-align: center;
         margin: auto;
+        cursor: default;
 
         width: 13ch;
         line-height: 1.5em;
