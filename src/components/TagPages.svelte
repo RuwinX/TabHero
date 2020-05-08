@@ -4,10 +4,8 @@
 
     export let tags;
 
-    const pages = chunk(tags, 6);
+    $: pages = chunk(tags, 6);
     let currentIndex = 0;
-    $: currentPage = pages[currentIndex];
-    $: console.log(currentPage);
 
     function incrementPage() {
         if (currentIndex >= pages.length - 1) return;
@@ -26,7 +24,7 @@
 
 <div class="container">
     <div class="content">
-        <TagGrid tags={currentPage} />
+        <TagGrid tags={pages[currentIndex]} />
     </div>
     {#if pages.length > 1}
         <nav>

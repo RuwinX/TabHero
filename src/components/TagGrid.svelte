@@ -4,7 +4,7 @@
 
     export let tags;
 
-    const rows = chunk(tags, 2);
+    $: rows = chunk(tags, 2);
 </script>
 
 <style>
