@@ -18,6 +18,7 @@
         margin: auto;
 
         width: 13ch;
+        line-height: 1.25rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

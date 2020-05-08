@@ -75,4 +75,9 @@
     li span.current {
         background-color: #146cdb;
     }
+
+    button {
+        border: none;
+        background-color: white;
+    }
 </style>
