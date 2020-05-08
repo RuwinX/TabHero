@@ -11,7 +11,6 @@
     .container {
         padding-top: 1rem;
         padding-bottom: 1rem;
-        min-width: 320px;
 
         /* DEBUG */
         /* background-color: red; */

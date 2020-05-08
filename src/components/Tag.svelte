@@ -3,7 +3,6 @@
         background-color: white;
         border: solid 0.5px #146cdb;
         border-radius: 13px;
-        cursor: pointer;
         width: 20ch;  /* few ch higher than .text width */
     }
     .container.added {
@@ -18,7 +17,7 @@
         margin: auto;
 
         width: 13ch;
-        line-height: 1.25rem;
+        line-height: 1.5em;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

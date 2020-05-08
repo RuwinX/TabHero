@@ -70,7 +70,6 @@
         width: 80%;
         border-radius: 2px;
         background-color: #d8d8d8;
-        cursor: pointer;
     }
     li span.current {
         background-color: #146cdb;
