@@ -33,7 +33,9 @@
             <button on:click={decrementPage}>&lt;</button>
             <ul>
                 {#each range(pages.length) as i}
-                    <li class={i === currentIndex ? 'current' : ''} on:click={() => setPage(i)}></li>
+                    <li>
+                        <span class={i === currentIndex ? 'current' : ''} on:click={() => setPage(i)}></span>
+                    </li>
                 {/each}
             </ul>
             <button on:click={incrementPage}>&gt;</button>
@@ -54,18 +56,23 @@
 
         flex-grow: 1;
         display: flex;
-        justify-content: space-evenly;
-        align-items: center;
     }
 
     li {
-        min-width: 30px;  /* TODO: make width a fraction of ul */
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    li span {
         height: 5px;
+        width: 80%;
         border-radius: 2px;
         background-color: #d8d8d8;
         cursor: pointer;
     }
-    li.current {
+    li span.current {
         background-color: #146cdb;
     }
 </style>

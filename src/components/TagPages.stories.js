@@ -26,9 +26,16 @@ export const OnePage = () => ({
     },
 });
 
-export const ManyPages = () => ({
+export const TwoPages = () => ({
     Component: TagPages,
     props: {
         tags: tags
+    },
+});
+
+export const ManyPages = () => ({
+    Component: TagPages,
+    props: {
+        tags: [...tags, ...tags, ...tags]
     },
 });
