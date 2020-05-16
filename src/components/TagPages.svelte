@@ -5,7 +5,7 @@
     export let tags;
 
     $: pages = chunk(tags, 6);
-    let currentIndex = 0;  // possible bug: currentIndex needs to change when it goes out of pages range
+    let currentIndex = 0;  // TODO possible bug: currentIndex needs to change when it goes out of pages range
 
     function incrementPage() {
         if (currentIndex >= pages.length - 1) return;
