@@ -7,11 +7,47 @@ export default {
     component: AddTagBar,
 };
 
-export const Foo = () => ({
+export const NoExactMatch = () => ({
     Component: AddTagBar,
     props: {
-        value: 'Go',
+        input: 'Go',
         suggestions: ['Goa', 'Google'],
+    },
+    on: {},
+});
+
+export const ExactMatch = () => ({
+    Component: AddTagBar,
+    props: {
+        input: 'Goa',
+        suggestions: ['Goa'],
+    },
+    on: {},
+});
+
+export const InputMaxLength = () => ({
+    Component: AddTagBar,
+    props: {
+        input: Array(15).fill('G').join(''),
+        suggestions: [],
+    },
+    on: {},
+});
+
+export const InputLengthExceeded = () => ({
+    Component: AddTagBar,
+    props: {
+        input: Array(16).fill('G').join(''),
+        suggestions: [],
+    },
+    on: {},
+});
+
+export const ManySuggestions = () => ({
+    Component: AddTagBar,
+    props: {
+        input: 'G',
+        suggestions: Array(10).fill('Google'),
     },
     on: {},
 });

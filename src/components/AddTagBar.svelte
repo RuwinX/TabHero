@@ -1,30 +1,43 @@
 <script>
     export let suggestions;
-    export let value;
+    export let input;
+    const MAX_LEN = 15;
 
-    $: exactMatchFound = suggestions.includes(value);
+    $: exactMatchFound = suggestions.includes(input);
 </script>
 
 <div class="container">
     <div class="input-container">
-        <input type="text" {value}>
+        <input type="text" value={input}>
     </div>
-    <ul>
-        <li class="new">
-            <div>
-                <span>{value}</span>
-                <span class="prompt">+Create New Tag and Add</span>
-            </div>
-        </li>
-        {#each suggestions as item}
-            <li>
-                <div>
-                    <span>{item}</span>
-                    <span class="prompt">+Add</span>
-                </div>
-            </li>
-        {/each}
-    </ul>
+    {#if input.length > MAX_LEN}
+        <div class="info-prompt-wrapper">
+            <span class="prompt">Please add tags under {MAX_LEN + 1} characters only</span>
+        </div>
+    {:else}
+        <ul>
+            {#if !exactMatchFound}
+                <li class="new">
+                    <div>
+                        <span>{input}</span>
+                        <span class="item-prompt-wrapper">
+                            <span class="prompt">+Create New Tag and Add</span>
+                        </span>
+                    </div>
+                </li>
+            {/if}
+            {#each suggestions as item}
+                <li>
+                    <div>
+                        <span>{item}</span>
+                        <span class="item-prompt-wrapper">
+                            <span class="prompt">+Add</span>
+                        </span>
+                    </div>
+                </li>
+            {/each}
+        </ul>
+    {/if}
 </div>
 
 <style>
@@ -51,6 +64,7 @@
     }
 
     li {
+        cursor: default;
         padding: 2px 10px;
     }
     li:not(:last-child){
@@ -71,6 +85,13 @@
         font-weight: 900;
         color: #249c68;
         vertical-align: middle;
+    }
+
+    .info-prompt-wrapper {
+        text-align: center;
+    }
+    .item-prompt-wrapper {
         margin-left: .25rem;
+        white-space: nowrap;
     }
 </style>
