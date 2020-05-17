@@ -63,6 +63,12 @@
         color: inherit;
     }
 
+    ul {
+        /* cut off the scrollable view's last visible item */
+        max-height: 4.5rem;
+        overflow-y: scroll;
+    }
+
     li {
         cursor: default;
         padding: 2px 10px;
