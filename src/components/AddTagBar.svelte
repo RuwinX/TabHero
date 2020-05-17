@@ -61,6 +61,7 @@
         font-family: inherit;
         font-weight: 900;
         color: inherit;
+        outline: none;
     }
 
     ul {
