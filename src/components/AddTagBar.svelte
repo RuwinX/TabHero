@@ -59,6 +59,12 @@
     li.new {
         font-weight: 900;
     }
+    li:hover {
+        background-color: #146cdb;
+    }
+    li:hover * {
+        color: #f0f6ef;
+    }
 
     .prompt {
         font-size: .5rem;
