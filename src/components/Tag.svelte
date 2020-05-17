@@ -26,6 +26,8 @@
     .text.added {
         color: #f0f6ef;
     }
+
+    /* TODO: include hover case for feedback */
 </style>
 
 <div class="container {addedClass}" on:click|stopPropagation={handleClick}>
