@@ -10,13 +10,17 @@
         <input type="text" {value}>
     </div>
     <ul>
-        <li class="first-item">
-            <div>{value}</div>
+        <li class="new">
+            <div>
+                <span>{value}</span>
+                <span class="prompt">+Create New Tag and Add</span>
+            </div>
         </li>
         {#each suggestions as item}
             <li>
                 <div>
-                    {item}
+                    <span>{item}</span>
+                    <span class="prompt">+Add</span>
                 </div>
             </li>
         {/each}
@@ -26,7 +30,6 @@
 <style>
     .container {
         font-family: Avenir;
-        font-weight: 900;
         color: #146cdb;
 
         border: solid 0.5px #146cdb;
@@ -40,7 +43,11 @@
         border-bottom: solid 0.5px #146cdb;
     }
     input {
+        /* form inputs don't inherit font styles */
         width: 100%;
+        font-family: inherit;
+        font-weight: 900;
+        color: inherit;
     }
 
     li {
@@ -48,5 +55,16 @@
     }
     li:not(:last-child){
         border-bottom: solid 0.5px #146cdb;
+    }
+    li.new {
+        font-weight: 900;
+    }
+
+    .prompt {
+        font-size: .5rem;
+        font-weight: 900;
+        color: #249c68;
+        vertical-align: middle;
+        margin-left: .25rem;
     }
 </style>
