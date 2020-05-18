@@ -11,7 +11,7 @@
     <div class="input-container" class:empty>
         <input
             type="text" value={input}
-            placeholder="Type to search from your tag library or to create a new tag!">
+            placeholder="Search from your tag library or create a new tag!">
     </div>
     {#if input.length > MAX_LEN}
         <div class="info-prompt-wrapper">
