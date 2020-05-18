@@ -4,17 +4,20 @@
     const MAX_LEN = 15;
 
     $: exactMatchFound = suggestions.includes(input);
+    $: empty = input === '';
 </script>
 
-<div class="container">
-    <div class="input-container">
-        <input type="text" value={input}>
+<div class="container" class:empty>
+    <div class="input-container" class:empty>
+        <input
+            type="text" value={input}
+            placeholder="Type to search from your tag library or to create a new tag!">
     </div>
     {#if input.length > MAX_LEN}
         <div class="info-prompt-wrapper">
             <span class="prompt">Please add tags under {MAX_LEN + 1} characters only</span>
         </div>
-    {:else}
+    {:else if input !== ''}
         <ul>
             {#if !exactMatchFound}
                 <li class="new">
@@ -49,12 +52,19 @@
         border-top-left-radius: 2.5px;
         border-top-right-radius: 2.5px;
     }
+    .container.empty {
+        border-radius: 2.5px;
+    }
 
     .input-container {
         /* without horizontal padding, input always overflows the container */
         padding: 5px 10px;
         border-bottom: solid 0.5px #146cdb;
     }
+    .input-container.empty {
+        border-bottom: none;
+    }
+
     input {
         /* form inputs don't inherit font styles */
         width: 100%;
@@ -62,6 +72,11 @@
         font-weight: 900;
         color: inherit;
         outline: none;
+    }
+    input:placeholder-shown {
+        font-weight: 300;
+        font-size: .75rem;
+        font-style: oblique;
     }
 
     ul {

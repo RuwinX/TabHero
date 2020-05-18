@@ -7,6 +7,15 @@ export default {
     component: AddTagBar,
 };
 
+export const EmptyInput = () => ({
+    Component: AddTagBar,
+    props: {
+        input: '',
+        suggestions: [],
+    },
+    on: {},
+});
+
 export const ManySuggestions = () => ({
     Component: AddTagBar,
     props: {
@@ -43,7 +52,7 @@ export const InputMaxLength = () => ({
     on: {},
 });
 
-export const InputLengthExceeded = () => ({
+export const InputMaxLengthExceeded = () => ({
     Component: AddTagBar,
     props: {
         input: Array(16).fill('G').join(''),
