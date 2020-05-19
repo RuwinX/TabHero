@@ -24,7 +24,7 @@
 
 <div class="container">
     <div class="content">
-        <TagGrid tags={pages[currentIndex]} />
+        <TagGrid tags={pages[currentIndex]} minRows={3} />
     </div>
     {#if pages.length > 1}
         <nav>

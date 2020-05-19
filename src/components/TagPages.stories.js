@@ -26,16 +26,16 @@ export const OnePage = () => ({
     },
 });
 
-export const TwoPages = () => ({
-    Component: TagPages,
-    props: {
-        tags: tags
-    },
-});
-
 export const ManyPages = () => ({
     Component: TagPages,
     props: {
-        tags: [...tags, ...tags, ...tags]
+        tags: [...tags, ...tags]
+    },
+});
+
+export const EmptyRowsOnLastPage = () => ({
+    Component: TagPages,
+    props: {
+        tags: tags.slice(0, 8)
     },
 });
