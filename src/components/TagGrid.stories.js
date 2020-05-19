@@ -17,13 +17,14 @@ const tags = [
 export const AllCellsFilled = () => ({
     Component: TagGrid,
     props: {
-        tags: tags
+        tags: [...tags, ...tags]
     },
 });
 
-export const EmptyCells = () => ({
+export const EmptyCellsAndRows = () => ({
     Component: TagGrid,
     props: {
+        minRows: 4,
         tags: tags.slice(0, 3)
     },
 });

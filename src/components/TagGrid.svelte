@@ -1,14 +1,26 @@
 <script>
-    import { chunk } from 'lodash-es';
+    import { chunk, zipWith, range } from 'lodash-es';
     import Tag from './Tag.svelte';
 
     export let tags;
+    export let minRows;
 
-    $: rows = chunk(tags, 2);
+    const numCols = 2;
+
+    $: rows = zipWith(range(minRows), chunk(tags, numCols), (i, _tags) => {
+        _tags = _tags === undefined
+            ? []
+            : _tags;
+        return [i, _tags];
+    });
 </script>
 
 <style>
     .container {
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-row-gap: 1rem;
+
         padding-top: 1rem;
         padding-bottom: 1rem;
 
@@ -21,20 +33,16 @@
         display: flex;
         justify-content: space-between;
     }
-    .row:not(:last-of-type) {
-        margin-bottom: 1rem;
-    }
 </style>
 
 <div class="container">
-    {#each rows as [first, second]}
+    {#each rows as [i, cells]}
         <div class="row">
-            {#if first}
-                <Tag text={first.text} added={first.added} />
-            {/if}
-            {#if second}
-                <Tag text={second.text} added={second.added} />
-            {/if}
+            {#each cells as tag}
+                <div class="cell">
+                    <Tag text={tag.text} added={tag.added} />
+                </div>
+            {/each}
         </div>
     {/each}
 </div>
