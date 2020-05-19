@@ -31,8 +31,8 @@
             <button on:click={decrementPage}>&lt;</button>
             <ul>
                 {#each range(pages.length) as i}
-                    <li>
-                        <span class={i === currentIndex ? 'current' : ''} on:click={() => setPage(i)}></span>
+                    <li on:click={() => setPage(i)}>  <!-- making the larger area the clickable area -->
+                        <span class={i === currentIndex ? 'current' : ''}></span>
                     </li>
                 {/each}
             </ul>
