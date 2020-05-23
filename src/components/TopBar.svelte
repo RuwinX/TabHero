@@ -1,6 +1,6 @@
 <script>
   export let loggedIn;
-  export let username = "dummy";
+  export let username = "thisisanemail@gmail.com";
   export let loginFlow;
   let share_src = "icons/share.svg";
   let close_src = "icons/close.svg";
@@ -82,6 +82,10 @@
   #a_loginFlow {
     font-weight: bold;
   }
+  #usernameSpan{
+    font-weight: bold;
+    font-size: 115%;
+  }
 </style>
 
 <div id="TopBarDivContainer">
@@ -100,7 +104,7 @@
     <p>Tab Hero</p>
 
     {#if loggedIn}
-      <a id="a_loggedin" href="placeholder.html">Logged in as: {username}</a>
+      <a id="a_loggedin" href="placeholder.html">Logged in as: <span id="usernameSpan">{username}</span></a>
     {:else if loginFlow}
       <a id="a_loginFlow" href="placeholder.html">Login Flow</a>
     {:else}
