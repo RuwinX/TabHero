@@ -1,6 +1,6 @@
 <script>
-    export let suggestions;
-    export let input;
+    export let suggestions = [];
+    export let input = '';
     const MAX_LEN = 15;
 
     $: exactMatchFound = suggestions.includes(input);
@@ -10,7 +10,8 @@
 <div class="container" class:empty>
     <div class="input-container" class:empty>
         <input
-            type="text" value={input}
+            bind:value={input}
+            type="text"
             placeholder="Search from your tag library or create a new tag!">
     </div>
     {#if input.length > MAX_LEN}
