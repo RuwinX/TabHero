@@ -4,6 +4,7 @@
     import SearchButton from '../components/SearchButton';
     import TagPages from '../components/TagPages';
     import AddTagBar from '../components/AddTagBar';
+    import Heading from '../components/Heading';
 
     export let currentTabLink;
     export let tags;
@@ -20,6 +21,9 @@
     }
     .row:not(:last-child) {
         margin-bottom: .75rem;
+    }
+    .row > .stretch {
+        flex-grow: 1;
     }
 
     section {
@@ -42,7 +46,7 @@
 </section>
 <section>
     <div class="row">
-        <h2>Manage Tags</h2>
+        <Heading text="Manage Tags" />
     </div>
     <div class="row">
         <p>{currentTabLink}</p>
@@ -51,9 +55,11 @@
 </section>
 <section>
     <div class="row">
-        <h2>Add Tags</h2>
+        <Heading text="Add Tags" />
     </div>
     <div class="row">
-        <AddTagBar suggestions={tagSuggestions} bind:input={addTagsInput} />
+        <div class="stretch">
+            <AddTagBar suggestions={tagSuggestions} bind:input={addTagsInput} />
+        </div>
     </div>
 </section>
