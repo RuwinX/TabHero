@@ -64,9 +64,9 @@
     }
 
     li span {
-        height: 5px;
+        height: .4rem;
         width: 80%;
-        border-radius: 2px;
+        border-radius: .2rem;
         background-color: #d8d8d8;
     }
     li span.current {

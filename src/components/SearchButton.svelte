@@ -5,7 +5,7 @@
 <style>
     button {
         border: 1px solid #ff388f;
-        border-radius: 4px;
+        border-radius: .4rem;
         background-color: white;
         padding: .25rem .5rem;
 

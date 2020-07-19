@@ -50,16 +50,16 @@
         color: #146cdb;
 
         border: solid 0.5px #146cdb;
-        border-top-left-radius: 2.5px;
-        border-top-right-radius: 2.5px;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
     }
     .container.empty {
-        border-radius: 2.5px;
+        border-radius: .25rem;
     }
 
     .input-container {
         /* without horizontal padding, input always overflows the container */
-        padding: 5px 10px;
+        padding: .5rem 1rem;
         border-bottom: solid 0.5px #146cdb;
     }
     .input-container.empty {
@@ -88,7 +88,7 @@
 
     li {
         cursor: default;
-        padding: 2px 10px;
+        padding: .2rem 1rem;
     }
     li:not(:last-child){
         border-bottom: solid 0.5px #146cdb;

@@ -2,7 +2,7 @@
     .container {
         background-color: white;
         border: solid 0.5px #146cdb;
-        border-radius: 13px;
+        border-radius: 1.5rem;
         width: 20ch;  /* few ch higher than .text width */
     }
     .container.added {
