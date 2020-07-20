@@ -15,6 +15,13 @@
 </script>
 
 <style>
+    .body {
+        border: .1rem solid #146cdb;
+        border-top: 0;
+        border-bottom-left-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+    }
+
     .row {
         display: flex;
         justify-content: center;
@@ -33,33 +40,40 @@
         /* border: 1px solid black; */
         /* background-color: yellow; */
     }
+    section:not(:last-child) {
+        border-bottom: .1rem solid #146cdb;
+    }
 </style>
 
-<TopBar loggedIn={false} loginFlow={false} />
-<section>
-    <div class="row">
-        <ActionButton text="Save All Open Tabs" />
+<div class="container">
+    <TopBar loggedIn={false} loginFlow={false} />
+    <div class="body">
+        <section>
+            <div class="row">
+                <ActionButton text="Save All Open Tabs" />
+            </div>
+            <div class="row">
+                <SearchButton text="Search Tab Hero" />
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <Heading text="Manage Tags" />
+            </div>
+            <div class="row">
+                <p>{currentTabLink}</p>
+            </div>
+            <TagPages {tags} />
+        </section>
+        <section>
+            <div class="row">
+                <Heading text="Add Tags" />
+            </div>
+            <div class="row">
+                <div class="stretch">
+                    <AddTagBar suggestions={tagSuggestions} bind:input={addTagsInput} />
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="row">
-        <SearchButton text="Search Tab Hero" />
-    </div>
-</section>
-<section>
-    <div class="row">
-        <Heading text="Manage Tags" />
-    </div>
-    <div class="row">
-        <p>{currentTabLink}</p>
-    </div>
-    <TagPages {tags} />
-</section>
-<section>
-    <div class="row">
-        <Heading text="Add Tags" />
-    </div>
-    <div class="row">
-        <div class="stretch">
-            <AddTagBar suggestions={tagSuggestions} bind:input={addTagsInput} />
-        </div>
-    </div>
-</section>
+</div>
