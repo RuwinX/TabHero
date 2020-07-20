@@ -5,27 +5,26 @@ export default {
     component: TopBar,
 };
 
-
-export const loggedIn = () => ({
+export const NotLoggedInDefaultAndHover = () => ({
     Component: TopBar,
     props: {
-        loggedIn:true,
-        loginFlow:false
+        state: 'NOT_LOGGED_IN',
+        user: null,
     },
-  });
+});
 
-  export const NotLoggedIn = () => ({
+export const LoggingIn = () => ({
     Component: TopBar,
     props: {
-        loggedIn:false,
-        loginFlow:false
+        state: 'LOGGING_IN',
+        user: 'somebody@example.com',
     },
-  });
+});
 
-  export const loggingInProcess = () => ({
+export const LoggedInAndHoverOnIcons = () => ({
     Component: TopBar,
     props: {
-        loggedIn:false,
-        loginFlow:true
+        state: 'LOGGED_IN',
+        user: 'somebody@example.com',
     },
-  });
+});

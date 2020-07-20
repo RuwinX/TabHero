@@ -1,117 +1,88 @@
 <script>
-  export let loggedIn;
-  export let username = "thisisanemail@gmail.com";
-  export let loginFlow;
-  let share_src = "icons/share.svg";
-  let close_src = "icons/close.svg";
+  export let state;
+  export let user;
+
+  const shareSrc = "icons/share.svg";
+  const closeSrc = "icons/close.svg";
 </script>
 
 <style>
-  p {
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.4px;
+    .container {
+        display: flex;
 
-    color: #f0f6ef;
-  }
-  #TopBarDivContainer {
-    border-radius: 6px;
-    background-color: #146cdb;
-    padding-top: 1px;
-  }
-  #iconsDivContainer {
-    margin: 1px;
-    padding-bottom: 4px;
-  }
-  #HeaderDivContainer {
-    text-align: center;
+        border-top-left-radius: .5rem;
+        border-top-right-radius: .5rem;
+        background-color: #146cdb;
 
-    padding: 5px;
-  }
+        font-family: Avenir;
+        color: white;
 
-  a {
-    width: 110px;
-    height: 9.5px;
-    font-family: Avenir;
-    font-size: 7px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.18px;
-    text-align: center;
-    color: #f0f6ef;
-  }
+        padding: .5rem;
+    }
 
-  img {
-    width: 11px;
-    height: 9.5px;
-  }
-  button {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    border: 0;
-    background: transparent;
-  }
+    header {
+        flex-grow: 1;
+        text-align: center;
+    }
 
-  button:hover {
-    outline: #fff solid 1px;
-  }
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
 
-  #buttonShareIcon {
-    float: left;
-    margin-left: 4px;
-  }
-  #buttonCloseIcon {
-    float: right;
-    margin-right: 4px;
-  }
+        margin-bottom: .25rem;
+    }
 
-  #a_loggedin {
-    text-decoration: none;
-  }
-  #a_loggedout:hover {
-    font-weight: bold;
-  }
-  #a_loginFlow {
-    font-weight: bold;
-  }
-  #usernameSpan{
-    font-weight: bold;
-    font-size: 115%;
-  }
+    .info {
+        font-size: .75rem;
+    }
+    .info.not-logged-in {
+        text-decoration: underline;
+    }
+    .info.not-logged-in:hover {
+        font-weight: 900;
+    }
+
+    .user {
+        font-weight: 900;
+    }
+
+    button {
+        border: 0;
+        background: transparent;
+    }
+    button:hover {
+        outline: white solid 1px;
+    }
+
+    img {
+        width: 11px;
+        height: 9.5px;
+    }
 </style>
 
-<div id="TopBarDivContainer">
-
-  <div id="iconsDivContainer">
-    <button id="buttonShareIcon">
-      <img src={share_src} alt="shareicon" />
-    </button>
-
-    <button id="buttonCloseIcon">
-      <img src={close_src} alt="shareicon" />
-    </button>
-  </div>
-
-  <div id="HeaderDivContainer">
-    <p>Tab Hero</p>
-
-    {#if loggedIn}
-      <a id="a_loggedin" href="placeholder.html">Logged in as: <span id="usernameSpan">{username}</span></a>
-    {:else if loginFlow}
-      <a id="a_loginFlow" href="placeholder.html">Login Flow</a>
-    {:else}
-      <a id="a_loggedout" href="placeholder.html">
-        Login to sync data across devices
-      </a>
-    {/if}
-  </div>
-
+<div class="container">
+    <aside>
+        <button>
+            <img src={shareSrc} alt="Share" />
+        </button>
+    </aside>
+    <header>
+        <h1>Tab Hero</h1>
+        <div>
+            {#if state === 'LOGGED_IN'}
+                <span class="info logged-in">
+                    Logged in as: <span class="user">{user}</span>
+                </span>
+            {:else if state === 'LOGGING_IN'}
+                <span class="info logging-in">Login Flow</span>
+            {:else}
+                <span class="info not-logged-in">Login to sync data across devices</span>
+            {/if}
+        </div>
+    </header>
+    <aside>
+        <button>
+            <img src={closeSrc} alt="Escape" />
+        </button>
+    </aside>
 </div>
