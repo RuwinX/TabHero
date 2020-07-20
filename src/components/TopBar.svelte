@@ -1,9 +1,7 @@
 <script>
-  export let state;
-  export let user;
-
-  const shareSrc = "icons/share.svg";
-  const closeSrc = "icons/close.svg";
+    import Icon from './Icon';
+    export let state;
+    export let user;
 </script>
 
 <style>
@@ -47,23 +45,19 @@
     }
 
     button {
-        border: 0;
+        border-radius: .5rem;
+        border: 1px solid transparent;
         background: transparent;
     }
     button:hover {
-        outline: white solid 1px;
-    }
-
-    img {
-        width: 11px;
-        height: 9.5px;
+        border-color: white;
     }
 </style>
 
 <div class="container">
     <aside>
         <button>
-            <img src={shareSrc} alt="Share" />
+            <Icon icon="share" fill="#fff" />
         </button>
     </aside>
     <header>
@@ -82,7 +76,7 @@
     </header>
     <aside>
         <button>
-            <img src={closeSrc} alt="Escape" />
+            <Icon icon="close" fill="#fff" />
         </button>
     </aside>
 </div>
