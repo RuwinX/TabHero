@@ -79,7 +79,7 @@
 
     ul {
         /* cut off the scrollable view's last visible item */
-        max-height: 4.5rem;
+        max-height: 5rem;
         overflow-y: scroll;
     }
 
