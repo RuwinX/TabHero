@@ -5,4 +5,10 @@
     --col-light-primary: #fff;
     --col-dark-primary: #000;
     --col-dark-secondary: #d8d8d8;
+
+    --font-size-xsm: .5rem;
+    --font-size-sm: .75rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.3rem;
+    --font-size-xlg: 1.75rem;
   }

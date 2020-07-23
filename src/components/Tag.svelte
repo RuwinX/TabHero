@@ -12,6 +12,7 @@
     .text {
         font-family: Avenir;
         font-weight: 900;
+        font-size: var(--font-size-md);
         color: var(--col-primary);
         text-align: center;
         margin: auto;

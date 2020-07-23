@@ -76,7 +76,7 @@
     }
     input:placeholder-shown {
         font-weight: 300;
-        font-size: .75rem;
+        font-size: var(--font-size-sm);
         font-style: oblique;
     }
 
@@ -104,7 +104,7 @@
     }
 
     .prompt {
-        font-size: .5rem;
+        font-size: var(--font-size-xsm);
         font-weight: 900;
         color: var(--col-tertiary);
         vertical-align: middle;

@@ -24,14 +24,14 @@
     }
 
     h1 {
-        font-size: 1.75rem;
+        font-size: var(--font-size-xlg);
         font-weight: 700;
 
         margin-bottom: .25rem;
     }
 
     .info {
-        font-size: .75rem;
+        font-size: var(--font-size-sm);
     }
     .info.not-logged-in {
         text-decoration: underline;

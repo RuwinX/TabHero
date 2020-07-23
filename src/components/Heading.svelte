@@ -6,7 +6,7 @@
     h2 {
         font-family: Avenir;
         font-weight: 700;
-        font-size: 1.3rem;
+        font-size: var(--font-size-lg);
         color: var(--col-tertiary);
     }
 </style>

@@ -10,6 +10,7 @@
         padding: .25rem .5rem;
 
         font-family: Avenir;
+        font-size: var(--font-size-md);
         color: var(--col-secondary);
         vertical-align: text-top;
     }

@@ -11,7 +11,7 @@
 
         font-family: Avenir;
         font-weight: 500;
-        font-size: 1.3rem;
+        font-size: var(--font-size-lg);
         color: var(--col-light-primary);
     }
 
