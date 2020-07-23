@@ -10,10 +10,10 @@
 
         border-top-left-radius: .5rem;
         border-top-right-radius: .5rem;
-        background-color: #146cdb;
+        background-color: var(--col-primary);
 
         font-family: Avenir;
-        color: white;
+        color: var(--col-light-primary);
 
         padding: .5rem;
     }
@@ -50,7 +50,7 @@
         background: transparent;
     }
     button:hover {
-        border-color: white;
+        border-color: var(--col-light-primary);
     }
 </style>
 

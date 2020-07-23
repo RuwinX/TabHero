@@ -16,7 +16,7 @@
 
 <style>
     .body {
-        border: .1rem solid #146cdb;
+        border: .1rem solid var(--col-primary);
         border-top: 0;
         border-bottom-left-radius: .5rem;
         border-bottom-right-radius: .5rem;
@@ -41,7 +41,7 @@
         /* background-color: yellow; */
     }
     section:not(:last-child) {
-        border-bottom: .1rem solid #146cdb;
+        border-bottom: .1rem solid var(--col-primary);
     }
 </style>
 

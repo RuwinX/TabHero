@@ -67,14 +67,14 @@
         height: .4rem;
         width: 80%;
         border-radius: .2rem;
-        background-color: #d8d8d8;
+        background-color: var(--col-dark-secondary);
     }
     li span.current {
-        background-color: #146cdb;
+        background-color: var(--col-primary);
     }
 
     button {
         border: none;
-        background-color: white;
+        background-color: var(--col-light-primary);
     }
 </style>

@@ -47,9 +47,9 @@
 <style>
     .container {
         font-family: Avenir;
-        color: #146cdb;
+        color: var(--col-primary);
 
-        border: solid 0.5px #146cdb;
+        border: solid 0.5px var(--col-primary);
         border-top-left-radius: .25rem;
         border-top-right-radius: .25rem;
     }
@@ -60,7 +60,7 @@
     .input-container {
         /* without horizontal padding, input always overflows the container */
         padding: .5rem 1rem;
-        border-bottom: solid 0.5px #146cdb;
+        border-bottom: solid 0.5px var(--col-primary);
     }
     .input-container.empty {
         border-bottom: none;
@@ -91,22 +91,22 @@
         padding: .2rem 1rem;
     }
     li:not(:last-child){
-        border-bottom: solid 0.5px #146cdb;
+        border-bottom: solid 0.5px var(--col-primary);
     }
     li.new {
         font-weight: 900;
     }
     li:hover {
-        background-color: #146cdb;
+        background-color: var(--col-primary);
     }
     li:hover * {
-        color: #f0f6ef;
+        color: var(--col-light-primary);
     }
 
     .prompt {
         font-size: .5rem;
         font-weight: 900;
-        color: #249c68;
+        color: var(--col-tertiary);
         vertical-align: middle;
     }
 

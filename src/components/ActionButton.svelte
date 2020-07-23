@@ -7,18 +7,18 @@
         border: 1px solid transparent;
         border-radius: .5rem;
         padding: .5rem .75rem;
-        background-color: #ff388f;
+        background-color: var(--col-secondary);
 
         font-family: Avenir;
         font-weight: 500;
         font-size: 1.3rem;
-        color: white;
+        color: var(--col-light-primary);
     }
 
     button:active {
-        border: 1px solid #ff388f;
-        background-color: white;
-        color: #ff388f;
+        border: 1px solid var(--col-secondary);
+        background-color: var(--col-light-primary);
+        color: var(--col-secondary);
     }
 </style>
 

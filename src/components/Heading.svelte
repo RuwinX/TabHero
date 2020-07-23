@@ -7,7 +7,7 @@
         font-family: Avenir;
         font-weight: 700;
         font-size: 1.3rem;
-        color: #249c68;
+        color: var(--col-tertiary);
     }
 </style>
 

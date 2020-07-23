@@ -1,18 +1,18 @@
 <style>
     .container {
-        background-color: white;
-        border: solid 0.5px #146cdb;
+        background-color: var(--col-light-primary);
+        border: solid 0.5px var(--col-primary);
         border-radius: 1.5rem;
         width: 20ch;  /* few ch higher than .text width */
     }
     .container.added {
-        background-color: #146cdb;
+        background-color: var(--col-primary);
     }
 
     .text {
         font-family: Avenir;
         font-weight: 900;
-        color: #146cdb;
+        color: var(--col-primary);
         text-align: center;
         margin: auto;
         cursor: default;
@@ -24,7 +24,7 @@
         white-space: nowrap;
     }
     .text.added {
-        color: #f0f6ef;
+        color: var(--col-light-primary);
     }
 
     /* TODO: include hover case for feedback */

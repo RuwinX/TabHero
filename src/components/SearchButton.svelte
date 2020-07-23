@@ -4,13 +4,13 @@
 
 <style>
     button {
-        border: 1px solid #ff388f;
+        border: 1px solid var(--col-secondary);
         border-radius: .4rem;
-        background-color: white;
+        background-color: var(--col-light-primary);
         padding: .25rem .5rem;
 
         font-family: Avenir;
-        color: #ff388f;
+        color: var(--col-secondary);
         vertical-align: text-top;
     }
 </style>
