@@ -46,7 +46,6 @@
 
 <style>
     .container {
-        font-family: Avenir;
         color: var(--col-primary);
 
         border: solid 0.5px var(--col-primary);
@@ -67,9 +66,7 @@
     }
 
     input {
-        /* form inputs don't inherit font styles */
         width: 100%;
-        font-family: inherit;
         font-weight: var(--font-weight-thicc);
         color: inherit;
         outline: none;

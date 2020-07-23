@@ -10,7 +10,6 @@
     }
 
     .text {
-        font-family: Avenir;
         font-weight: var(--font-weight-thicc);
         font-size: var(--font-size-md);
         color: var(--col-primary);

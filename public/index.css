@@ -17,4 +17,8 @@
     --font-weight-md: 500;
     --font-weight-thin: 400;
     --font-weight-thinn: 300;
+
+    --font-family: Avenir;
+
+    font-family: var(--font-family);
   }

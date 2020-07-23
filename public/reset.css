@@ -50,4 +50,5 @@ table {
 }
 button {
 	outline: none;
+	font-family: inherit;
 }

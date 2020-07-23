@@ -12,7 +12,6 @@
         border-top-right-radius: .5rem;
         background-color: var(--col-primary);
 
-        font-family: Avenir;
         color: var(--col-light-primary);
 
         padding: .5rem;

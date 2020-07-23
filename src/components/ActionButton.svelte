@@ -9,7 +9,6 @@
         padding: .5rem .75rem;
         background-color: var(--col-secondary);
 
-        font-family: Avenir;
         font-weight: var(--font-weight-md);
         font-size: var(--font-size-lg);
         color: var(--col-light-primary);
