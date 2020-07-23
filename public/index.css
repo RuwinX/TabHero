@@ -11,4 +11,10 @@
     --font-size-md: 1rem;
     --font-size-lg: 1.3rem;
     --font-size-xlg: 1.75rem;
+
+    --font-weight-thicc: 900;
+    --font-weight-thic: 700;
+    --font-weight-md: 500;
+    --font-weight-thin: 400;
+    --font-weight-thinn: 300;
   }

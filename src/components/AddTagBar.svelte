@@ -70,12 +70,12 @@
         /* form inputs don't inherit font styles */
         width: 100%;
         font-family: inherit;
-        font-weight: 900;
+        font-weight: var(--font-weight-thicc);
         color: inherit;
         outline: none;
     }
     input:placeholder-shown {
-        font-weight: 300;
+        font-weight: var(--font-weight-thinn);
         font-size: var(--font-size-sm);
         font-style: oblique;
     }
@@ -89,12 +89,13 @@
     li {
         cursor: default;
         padding: .2rem 1rem;
+        font-weight: var(--font-weight-thin);
     }
     li:not(:last-child){
         border-bottom: solid 0.5px var(--col-primary);
     }
     li.new {
-        font-weight: 900;
+        font-weight: var(--font-weight-thicc);
     }
     li:hover {
         background-color: var(--col-primary);
@@ -105,7 +106,7 @@
 
     .prompt {
         font-size: var(--font-size-xsm);
-        font-weight: 900;
+        font-weight: var(--font-weight-thicc);
         color: var(--col-tertiary);
         vertical-align: middle;
     }

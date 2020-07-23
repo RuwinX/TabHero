@@ -25,23 +25,24 @@
 
     h1 {
         font-size: var(--font-size-xlg);
-        font-weight: 700;
+        font-weight: var(--font-weight-thic);
 
         margin-bottom: .25rem;
     }
 
     .info {
         font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-thin);
     }
     .info.not-logged-in {
         text-decoration: underline;
     }
     .info.not-logged-in:hover {
-        font-weight: 900;
+        font-weight: var(--font-weight-thicc);
     }
 
     .user {
-        font-weight: 900;
+        font-weight: var(--font-weight-thicc);
     }
 
     button {

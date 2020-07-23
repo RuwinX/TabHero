@@ -10,7 +10,7 @@
         background-color: var(--col-secondary);
 
         font-family: Avenir;
-        font-weight: 500;
+        font-weight: var(--font-weight-md);
         font-size: var(--font-size-lg);
         color: var(--col-light-primary);
     }

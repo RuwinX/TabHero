@@ -11,6 +11,7 @@
 
         font-family: Avenir;
         font-size: var(--font-size-md);
+        font-weight: var(--font-weight-thin);
         color: var(--col-secondary);
         vertical-align: text-top;
     }
