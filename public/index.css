@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap');
+
 :root {
     --col-primary: #146cdb;
     --col-secondary: #ff388f;
@@ -18,7 +20,7 @@
     --font-weight-thin: 400;
     --font-weight-thinn: 300;
 
-    --font-family: Avenir;
+    --font-family: 'Nunito Sans', sans-serif;
 
     font-family: var(--font-family);
   }
