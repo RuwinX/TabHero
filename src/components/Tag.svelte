@@ -30,8 +30,8 @@
     /* TODO: include hover case for feedback */
 </style>
 
-<div class="container {addedClass}" on:click|stopPropagation={handleClick}>
-    <div class="text {addedClass}">{text}</div>
+<div class="container" class:added on:click|stopPropagation={handleClick}>
+    <div class="text" class:added>{text}</div>
 </div>
 
 <script>
@@ -45,6 +45,4 @@
     const handleClick = () => {
         dispatch('click');
     };
-
-    const addedClass = added ? 'added' : '';
 </script>

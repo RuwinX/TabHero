@@ -32,7 +32,7 @@
             <ul>
                 {#each range(pages.length) as i}
                     <li on:click={() => setPage(i)}>  <!-- making the larger area the clickable area -->
-                        <span class={i === currentIndex ? 'current' : ''}></span>
+                        <span class:current={i === currentIndex}></span>
                     </li>
                 {/each}
             </ul>
