@@ -1,3 +1,16 @@
+<script>
+    export let text;
+    export let added;
+
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
+
+    const handleClick = () => {
+        dispatch('click');
+    };
+</script>
+
 <style>
     .container {
         background-color: var(--col-light-primary);
@@ -33,16 +46,3 @@
 <div class="container" class:added on:click|stopPropagation={handleClick}>
     <div class="text" class:added>{text}</div>
 </div>
-
-<script>
-    export let text;
-    export let added;
-
-    import { createEventDispatcher } from 'svelte';
-
-    const dispatch = createEventDispatcher();
-
-    const handleClick = () => {
-        dispatch('click');
-    };
-</script>

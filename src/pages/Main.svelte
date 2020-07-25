@@ -1,9 +1,9 @@
 <script>
-    import ActionButton from '../components/ActionButton';
-    import SearchButton from '../components/SearchButton';
-    import TagPages from '../components/TagPages';
-    import AddTagBar from '../components/AddTagBar';
-    import Heading from '../components/Heading';
+    import ActionButton from '../components/ActionButton.svelte';
+    import SearchButton from '../components/SearchButton.svelte';
+    import TagPages from '../components/TagPages.svelte';
+    import AddTagBar from '../components/AddTagBar.svelte';
+    import Heading from '../components/Heading.svelte';
 
     export let currentTabLink;
     export let tags;
