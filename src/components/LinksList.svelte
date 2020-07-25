@@ -1,0 +1,50 @@
+<script>
+    export let links = [];
+    export let faviconSize = 24;
+
+    // <a /> and window.open() should avoid tabnabbing:
+    // https://mathiasbynens.github.io/rel-noopener
+    // https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#tabnabbing
+</script>
+
+<style>
+    .container {
+        padding: .5rem;
+
+        /* DEBUG */
+        /* background-color: red; */
+        /* border: 1px solid blue; */
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        padding: .25rem;
+    }
+
+    img {
+        margin-right: .5rem;
+
+        /* maintain the favicon's aspect ratio given any image size */
+        object-fit: contain;
+    }
+
+    .title {
+        text-decoration: none;
+        color: var(--col-dark-primary);
+
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+</style>
+
+<div class="container">
+    <ul>
+        {#each links as { title, url, faviconUrl }}
+            <li>
+                <img src={faviconUrl} alt={faviconUrl} width={faviconSize} height={faviconSize} />
+                <a class="title" href={url} target="_blank" rel="noopener noreferrer">{title}</a>
+            </li>
+        {/each}
+    </ul>
+</div>
