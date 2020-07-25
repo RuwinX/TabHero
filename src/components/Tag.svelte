@@ -3,7 +3,7 @@
         background-color: var(--col-light-primary);
         border: solid 0.5px var(--col-primary);
         border-radius: 1.5rem;
-        width: 20ch;  /* few ch higher than .text width */
+        width: 16ch;  /* few ch higher than .text width */
     }
     .container.added {
         background-color: var(--col-primary);

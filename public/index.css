@@ -23,4 +23,5 @@
     --font-family: 'Nunito Sans', sans-serif;
 
     font-family: var(--font-family);
+    font-size: 16px;  /* this is what determines 1rem */
   }
