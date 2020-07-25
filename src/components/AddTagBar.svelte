@@ -22,22 +22,18 @@
         <ul>
             {#if !exactMatchFound}
                 <li class="new">
-                    <div>
-                        <span>{input}</span>
-                        <span class="item-prompt-wrapper">
-                            <span class="prompt">+Create New Tag and Add</span>
-                        </span>
-                    </div>
+                    <span>{input}</span>
+                    <span class="item-prompt-wrapper">
+                        <span class="prompt">+Create New Tag and Add</span>
+                    </span>
                 </li>
             {/if}
             {#each suggestions as item}
                 <li>
-                    <div>
-                        <span>{item}</span>
-                        <span class="item-prompt-wrapper">
-                            <span class="prompt">+Add</span>
-                        </span>
-                    </div>
+                    <span>{item}</span>
+                    <span class="item-prompt-wrapper">
+                        <span class="prompt">+Add</span>
+                    </span>
                 </li>
             {/each}
         </ul>
