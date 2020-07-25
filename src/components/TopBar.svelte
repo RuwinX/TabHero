@@ -1,7 +1,8 @@
 <script>
     import Icon from './Icon.svelte';
-    export let state;
-    export let user;
+
+    export let state = 'NOT_LOGGED_IN';
+    export let user = '';
 </script>
 
 <style>

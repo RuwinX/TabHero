@@ -2,7 +2,7 @@
     import { chunk, range } from 'lodash-es';
     import TagGrid from './TagGrid.svelte'
 
-    export let tags;
+    export let tags = [];
 
     $: pages = chunk(tags, 6);
     let currentIndex = 0;  // TODO possible bug: currentIndex needs to change when it goes out of pages range

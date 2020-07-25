@@ -2,8 +2,8 @@
     import { chunk, zipWith, range } from 'lodash-es';
     import Tag from './Tag.svelte';
 
-    export let tags;
-    export let minRows;
+    export let tags = [];
+    export let minRows = 1;
 
     const numCols = 2;
 

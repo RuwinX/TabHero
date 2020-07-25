@@ -1,6 +1,6 @@
 <script>
-    export let text;
-    export let added;
+    export let text = '';
+    export let added = false;
 
     import { createEventDispatcher } from 'svelte';
 

@@ -5,8 +5,8 @@
     import AddTagBar from '../components/AddTagBar.svelte';
     import Heading from '../components/Heading.svelte';
 
-    export let currentTabLink;
-    export let tags;
+    export let currentTabLink = '';
+    export let tags = [];
 
     let addTagsInput = '';
     $: tagNames = tags.map(tag => tag.text);
