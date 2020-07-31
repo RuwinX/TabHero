@@ -11,10 +11,13 @@ export const getCurrentTab = () => {
     });
 };
 
-export const getChromeStorage = (key, defaultVal) => {
+export const getChromeStorage = (key, defaultVal = []) => {
     return new Promise((resolve, reject) => {
         chrome.storage.local.get(key, (result) => {
-            const value = result[key] || defaultVal;
+            let value = result[key];
+            value = value === null || value === undefined
+                ? defaultVal
+                : value;
             resolve(value);
         });
     });
