@@ -1,10 +1,15 @@
 export const getCurrentTab = () => {
     return new Promise((resolve, reject) => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            const { title, url, favIconUrl } = tabs[0];
+            const { title, url, pendingUrl, favIconUrl } = tabs[0];
+
+            if (url === '' && pendingUrl === undefined) {
+                return reject(new Error('Impossible state'));
+            }
+
             resolve({
                 title,
-                url,
+                url: url === '' ? pendingUrl : url,
                 faviconUrl: favIconUrl
             });
         });
