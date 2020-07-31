@@ -60,7 +60,9 @@
         <div class="row">
             <p>{currentTabLink}</p>
         </div>
-        <TagPages {tags} />
+        <div class="row">
+            <TagPages {tags} />
+        </div>
     </section>
     <section>
         <div class="row">
