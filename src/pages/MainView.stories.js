@@ -28,5 +28,23 @@ export const Default = () => ({
         currentTabLink: 'www.google.co.in',
         addTagsInput: 'Re'
     },
-    on: { tagClick: action('tagClicked') }
+    on: {
+        tagClick: action('tagClicked'),
+        selectSuggestion: action('selectSuggestion'),
+        selectNew: action('selectNew')
+    }
+});
+
+export const AddTagsCaseInsensitiveInputButNoMatch = () => ({
+    Component: MainView,
+    props: {
+        tags: tags,
+        currentTabLink: 'www.google.co.in',
+        addTagsInput: 'recipe'
+    },
+    on: {
+        tagClick: action('tagClicked'),
+        selectSuggestion: action('selectSuggestion'),
+        selectNew: action('selectNew')
+    }
 });

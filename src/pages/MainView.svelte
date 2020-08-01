@@ -10,8 +10,8 @@
     export let addTagsInput = '';
 
     $: tagSuggestions = tags
-        .map(tag => tag.name)
-        .filter(tagName => tagName.startsWith(addTagsInput));
+        .filter(tag => tag.name.toLowerCase().startsWith(addTagsInput.toLowerCase()))
+        .map(({ id, name }) => ({ id, name }));
 </script>
 
 <style>
@@ -73,7 +73,7 @@
         </div>
         <div class="row">
             <div class="stretch">
-                <AddTagBar suggestions={tagSuggestions} bind:input={addTagsInput} />
+                <AddTagBar suggestions={tagSuggestions} bind:input={addTagsInput} on:selectSuggestion on:selectNew />
             </div>
         </div>
     </section>

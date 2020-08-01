@@ -7,8 +7,8 @@
 
     let addTagsInput = '';
 
-    function handleTagClick(event) {
-        const tagId = event.detail.tagId;
+    function addExistingTag(event) {
+        const { tagId } = event.detail;
         currentTabTags.update(prev => {
             return prev.map(tag => (
                 tag.id === tagId
@@ -17,10 +17,17 @@
             ));
         });
     }
+
+    function addNewTag(event) {
+        const { tagName } = event.detail;
+        alert(tagName);
+    }
 </script>
 
 <MainView
     {currentTabLink}
     tags={$currentTabTags}
     {addTagsInput}
-    on:tagClick={handleTagClick} />
+    on:tagClick={addExistingTag}
+    on:selectSuggestion={addExistingTag}
+    on:selectNew={addNewTag} />
