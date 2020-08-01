@@ -17,6 +17,7 @@
         currentTabTags.set(tags);
 
         const removeListener = registerOnTabUpdate(async (newTab) => {
+            // TODO: sync app state to storage before syncing new tab data from storage
             currentTab = await getCurrentTab();
             const tags = await syncTagsState(currentTab.url);
             currentTabTags.set(tags);
@@ -36,5 +37,5 @@
 
 <div class="container">
     <TopBar state="" user="" />
-    <Main currentTabLink={currentTab.url} tags={$currentTabTags} />
+    <Main currentTabLink={currentTab.url} />
 </div>
