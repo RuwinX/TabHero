@@ -8,17 +8,17 @@ export default {
 };
 
 const tags = [
-    { text: 'Youtube', added: true },
-    { text: 'Coffee!', added: true },
-    { text: 'Study Philosophy', added: true },
-    { text: 'Events', added: false },
-    { text: 'Reading List', added: false },
-    { text: 'Medium', added: false },
-    { text: 'Design', added: false },
-    { text: 'On The Road', added: false },
-    { text: 'Recipe', added: true },
-    { text: 'Want To Watch', added: false },
-    { text: 'Docs', added: true },
+    { id: 'xyz', added: true, name: 'Youtube' },
+    { id: 'xyz', added: true, name: 'Coffee!' },
+    { id: 'xyz', added: true, name: 'Study Philosophy' },
+    { id: 'xyz', added: false, name: 'Events' },
+    { id: 'xyz', added: false, name: 'Reading List' },
+    { id: 'xyz', added: false, name: 'Medium' },
+    { id: 'xyz', added: false, name: 'Design' },
+    { id: 'xyz', added: false, name: 'On The Road' },
+    { id: 'xyz', added: true, name: 'Recipe' },
+    { id: 'xyz', added: false, name: 'Want To Watch' },
+    { id: 'xyz', added: true, name: 'Docs' },
 ];
 
 export const OnePage = () => ({

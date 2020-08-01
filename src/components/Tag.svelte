@@ -1,5 +1,5 @@
 <script>
-    export let text = '';
+    export let name = '';
     export let added = false;
 
     import { createEventDispatcher } from 'svelte';
@@ -44,5 +44,5 @@
 </style>
 
 <div class="container" class:added on:click|stopPropagation={handleClick}>
-    <div class="text" class:added>{text}</div>
+    <div class="text" class:added>{name}</div>
 </div>

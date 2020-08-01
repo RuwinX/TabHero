@@ -8,12 +8,12 @@ export default {
 };
 
 const tags = [
-    { text: 'Youtube', added: true },
-    { text: 'Coffee!', added: true },
-    { text: 'Study Philosophy', added: true },
-    { text: 'Events', added: false },
-    { text: 'Reading List', added: false },
-    { text: 'Medium', added: false },
+    { id: 'xyz', added: true, name: 'Youtube' },
+    { id: 'xyz', added: true, name: 'Coffee!' },
+    { id: 'xyz', added: true, name: 'Study Philosophy' },
+    { id: 'xyz', added: false, name: 'Events' },
+    { id: 'xyz', added: false, name: 'Reading List' },
+    { id: 'xyz', added: false, name: 'Medium' },
 ];
 
 export const AllCellsFilled = () => ({

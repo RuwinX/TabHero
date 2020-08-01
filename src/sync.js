@@ -16,7 +16,8 @@ export const syncTagsState = async (currentTabUrl) => {
         : getTagIds(storageData, targetLink);
 
     return Object.entries(tags).map(([ id, tagBody ]) => ({
-        text: tagBody.name,
+        id,
+        name: tagBody.name,
         added: tagIds.has(id)
     }));
 };

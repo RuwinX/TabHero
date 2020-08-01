@@ -43,7 +43,7 @@
         <div class="row">
             {#each cells as tag}
                 <div class="cell">
-                    <Tag text={tag.text} added={tag.added} on:click={e => dispatch('tagClick', { tag: tag.text })} />
+                    <Tag name={tag.name} added={tag.added} on:click={e => dispatch('tagClick', { tagId: tag.id })} />
                 </div>
             {/each}
         </div>

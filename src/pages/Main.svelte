@@ -8,10 +8,10 @@
     let addTagsInput = '';
 
     function handleTagClick(event) {
-        const tagName = event.detail.tag;
+        const tagId = event.detail.tagId;
         currentTabTags.update(prev => {
             return prev.map(tag => (
-                tag.text === tagName
+                tag.id === tagId
                     ? { ...tag, added: !tag.added }
                     : tag
             ));

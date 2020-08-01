@@ -10,7 +10,7 @@ export default {
 export const AddedShort = () => ({
     Component: Tag,
     props: {
-        text: 'Youtube',
+        name: 'Youtube',
         added: true,
     },
     on: { click: action('clicked') },
@@ -19,7 +19,7 @@ export const AddedShort = () => ({
 export const AddedLong = () => ({
     Component: Tag,
     props: {
-        text: 'Study Philosophy',
+        name: 'Study Philosophy',
         added: true,
     },
     on: { click: action('clicked') },
@@ -28,7 +28,7 @@ export const AddedLong = () => ({
 export const NotAddedShort = () => ({
     Component: Tag,
     props: {
-        text: 'Youtube',
+        name: 'Youtube',
         added: false,
     },
     on: { click: action('clicked') },
@@ -37,7 +37,7 @@ export const NotAddedShort = () => ({
 export const NotAddedLong = () => ({
     Component: Tag,
     props: {
-        text: 'Study Philosophy',
+        name: 'Study Philosophy',
         added: false,
     },
     on: { click: action('clicked') },

@@ -10,7 +10,7 @@
     export let addTagsInput = '';
 
     $: tagSuggestions = tags
-        .map(tag => tag.text)
+        .map(tag => tag.name)
         .filter(tagName => tagName.startsWith(addTagsInput));
 </script>
 
