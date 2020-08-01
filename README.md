@@ -19,3 +19,7 @@ Once the chrome extension is loaded into the browser, make sure to seed the chro
 The `public` folder is where the svelte-built chrome extension lives. The html files there should reference the svelte js bundles. Hot-reloading isn't set up. So to develop, run `npm run build` to build the app, and reload the extension.
 
 The app would not work in development through `npm run dev`, because this will start the Svelte dev server, which serves the app in a web context, where the Chrome APIs are not available.
+
+## Bugs
+
+- [ ] When app is opened while a page is loading, two syncs occur: 1) App's mount syncs data from storage, 2) Page's "on load complete" syncs data from storage. If any action is performed between the two syncs (like adding a new tag to the page), the resultant state is overridden by the second sync.
