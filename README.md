@@ -20,6 +20,11 @@ The `public` folder is where the svelte-built chrome extension lives. The html f
 
 The app would not work in development through `npm run dev`, because this will start the Svelte dev server, which serves the app in a web context, where the Chrome APIs are not available.
 
-## Bugs
+## Anomalies
 
-- [ ] When app is opened while a page is loading, two syncs occur: 1) App's mount syncs data from storage, 2) Page's "on load complete" syncs data from storage. If any action is performed between the two syncs (like adding a new tag to the page), the resultant state is overridden by the second sync.
+1. [ ] When app is opened while a page is loading, two syncs occur: 1) App's mount syncs data from storage, 2) Page's "on load complete" syncs data from storage. If any action is performed between the two syncs (like adding a new tag to the page), the resultant state is overridden by the second sync.
+
+## Suggestions
+
+1. [ ] Visual element showing whether the app is synced with local storage or synced with the backend, like how google docs does it.
+2. [ ] In AddTag bar, even when a tag has been added, it shows up in the search results. Either we don't show them (but then we'd have to give user feedback somehow) or we let the user either 1) see a non-clickable "already added" prompt or 2) see a "remove tag" prompt, making the entire component a Add/Remove Tag component
