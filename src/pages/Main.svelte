@@ -1,4 +1,6 @@
 <script>
+    import { v4 as uuidv4 } from 'uuid';
+
     import { currentTabTags } from '../store.js';
 
     import MainView from './MainView.svelte';
@@ -20,7 +22,12 @@
 
     function addNewTag(event) {
         const { tagName } = event.detail;
-        alert(tagName);
+        const newTag = {
+            id: uuidv4(),
+            name: tagName,
+            added: true
+        };
+        currentTabTags.update(prev => [newTag, ...prev]);
     }
 </script>
 
