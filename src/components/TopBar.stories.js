@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 import TopBar from './TopBar.svelte';
 
 export default {
@@ -11,6 +13,7 @@ export const NotLoggedInDefaultAndHover = () => ({
         state: 'NOT_LOGGED_IN',
         user: null,
     },
+    on: { login: action('login') }
 });
 
 export const LoggingIn = () => ({
@@ -19,6 +22,7 @@ export const LoggingIn = () => ({
         state: 'LOGGING_IN',
         user: 'somebody@example.com',
     },
+    on: { login: action('login') }
 });
 
 export const LoggedInAndHoverOnIcons = () => ({
@@ -27,4 +31,5 @@ export const LoggedInAndHoverOnIcons = () => ({
         state: 'LOGGED_IN',
         user: 'somebody@example.com',
     },
+    on: { login: action('login') }
 });

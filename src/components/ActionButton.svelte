@@ -21,4 +21,4 @@
     }
 </style>
 
-<button>{text}</button>
+<button on:click>{text}</button>

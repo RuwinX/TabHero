@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 import SearchButton from './SearchButton.svelte';
 
 export default {
@@ -9,5 +11,6 @@ export const Default = () => ({
     Component: SearchButton,
     props: {
         text: 'Some Text Content',
-    }
+    },
+    on: { click: action('click') }
 });

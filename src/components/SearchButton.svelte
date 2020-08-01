@@ -16,4 +16,4 @@
     }
 </style>
 
-<button>🔍&nbsp;&nbsp;{text}</button>
+<button on:click>🔍&nbsp;&nbsp;{text}</button>

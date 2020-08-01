@@ -1,8 +1,15 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     import Icon from './Icon.svelte';
 
     export let state = 'NOT_LOGGED_IN';
     export let user = '';
+
+    const dispatch = createEventDispatcher();
+
+    function handleLoginClick(event) {
+        dispatch('login');
+    }
 </script>
 
 <style>
@@ -71,7 +78,7 @@
             {:else if state === 'LOGGING_IN'}
                 <span class="info logging-in">Login Flow</span>
             {:else}
-                <span class="info not-logged-in">Login to sync data across devices</span>
+                <span class="info not-logged-in" on:click={handleLoginClick}>Login to sync data across devices</span>
             {/if}
         </div>
     </header>
