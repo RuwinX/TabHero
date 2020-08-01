@@ -62,7 +62,9 @@
             <p>{currentTabLink}</p>
         </div>
         <div class="row">
-            <TagPages {tags} on:tagClick />
+            <div class="stretch">
+                <TagPages {tags} on:tagClick />
+            </div>
         </div>
     </section>
     <section>
