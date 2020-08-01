@@ -5,6 +5,10 @@
     export let tags = [];
 
     let addTagsInput = '';
+
+    function handleTagClick() {
+
+    }
 </script>
 
 <MainView

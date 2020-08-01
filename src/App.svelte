@@ -1,6 +1,8 @@
 <script>
     import { onMount } from 'svelte';
 
+    import { currentTabTags } from './store.js';
+
     import TopBar from './components/TopBar.svelte';
     import Main from './pages/Main.svelte';
 
@@ -8,15 +10,16 @@
     import { syncTagsState } from './sync';
 
     let currentTab = {};
-    let currentTabTags = [];
 
     onMount(async () => {
         currentTab = await getCurrentTab();
-        currentTabTags = await syncTagsState(currentTab.url);
+        const tags = await syncTagsState(currentTab.url);
+        currentTabTags.set(tags);
 
         const removeListener = registerOnTabUpdate(async (newTab) => {
             currentTab = await getCurrentTab();
-            currentTabTags = await syncTagsState(currentTab.url);
+            const tags = await syncTagsState(currentTab.url);
+            currentTabTags.set(tags);
         });
 
         return () => {
@@ -33,5 +36,5 @@
 
 <div class="container">
     <TopBar state="" user="" />
-    <Main currentTabLink={currentTab.url} tags={currentTabTags} />
+    <Main currentTabLink={currentTab.url} tags={$currentTabTags} />
 </div>
