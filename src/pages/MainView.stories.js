@@ -1,8 +1,8 @@
-import Main from './Main.svelte';
+import MainView from './MainView.svelte';
 
 export default {
-    title: 'Pages/Main',
-    component: Main,
+    title: 'Pages/MainView',
+    component: MainView,
 };
 
 const tags = [
@@ -20,9 +20,10 @@ const tags = [
 ];
 
 export const Default = () => ({
-    Component: Main,
+    Component: MainView,
     props: {
         tags: tags,
         currentTabLink: 'www.google.co.in',
+        addTagsInput: 'Re'
     }
 });
