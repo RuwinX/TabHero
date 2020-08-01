@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 import MainView from './MainView.svelte';
 
 export default {
@@ -25,5 +27,6 @@ export const Default = () => ({
         tags: tags,
         currentTabLink: 'www.google.co.in',
         addTagsInput: 'Re'
-    }
+    },
+    on: { tagClick: action('tagClicked') }
 });

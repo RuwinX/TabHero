@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 import TagGrid from './TagGrid.svelte';
 
 export default {
@@ -19,6 +21,7 @@ export const AllCellsFilled = () => ({
     props: {
         tags: [...tags, ...tags]
     },
+    on: { tagClick: action('tagClicked') }
 });
 
 export const EmptyCellsAndRows = () => ({
@@ -27,4 +30,5 @@ export const EmptyCellsAndRows = () => ({
         minRows: 4,
         tags: tags.slice(0, 3)
     },
+    on: { tagClick: action('tagClicked') }
 });

@@ -7,4 +7,8 @@
     let addTagsInput = '';
 </script>
 
-<MainView {tags} {currentTabLink} {addTagsInput} />
+<MainView
+    {tags}
+    {currentTabLink}
+    {addTagsInput}
+    on:tagClick={handleTagClick} />

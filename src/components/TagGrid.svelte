@@ -1,10 +1,13 @@
 <script>
     import { chunk, zipWith, range } from 'lodash-es';
+    import { createEventDispatcher } from 'svelte';
+
     import Tag from './Tag.svelte';
 
     export let tags = [];
     export let minRows = 1;
 
+    const dispatch = createEventDispatcher();
     const numCols = 2;
 
     $: rows = zipWith(range(minRows), chunk(tags, numCols), (i, _tags) => {
@@ -40,7 +43,7 @@
         <div class="row">
             {#each cells as tag}
                 <div class="cell">
-                    <Tag text={tag.text} added={tag.added} />
+                    <Tag text={tag.text} added={tag.added} on:click={e => dispatch('tagClick', { tag: tag.text })} />
                 </div>
             {/each}
         </div>

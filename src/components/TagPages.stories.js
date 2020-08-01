@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 import TagPages from './TagPages.svelte';
 
 export default {
@@ -24,6 +26,7 @@ export const OnePage = () => ({
     props: {
         tags: tags.slice(0, 6)
     },
+    on: { tagClick: action('tagClicked') }
 });
 
 export const ManyPages = () => ({
@@ -31,6 +34,7 @@ export const ManyPages = () => ({
     props: {
         tags: [...tags, ...tags]
     },
+    on: { tagClick: action('tagClicked') }
 });
 
 export const EmptyRowsOnLastPage = () => ({
@@ -38,4 +42,5 @@ export const EmptyRowsOnLastPage = () => ({
     props: {
         tags: tags.slice(0, 8)
     },
+    on: { tagClick: action('tagClicked') }
 });
