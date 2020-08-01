@@ -1,10 +1,25 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+
+    import { ADD_TAG_INPUT_MAX_LENGTH } from '../constants';
+
     export let suggestions = [];
     export let input = '';
-    const MAX_LEN = 15;
+    const MAX_LEN = ADD_TAG_INPUT_MAX_LENGTH;
 
-    $: exactMatchFound = suggestions.includes(input);
+    $: exactMatchFound = suggestions.find(tag => tag.name === input) !== undefined;
     $: empty = input === '';
+
+    const dispatch = createEventDispatcher();
+
+    function handleSuggestionClick(tagId) {
+        dispatch('selectSuggestion', { tagId });
+    }
+    function handleNewClick(inputText) {
+        dispatch('selectNew', {
+            tagName: inputText
+        });
+    }
 </script>
 
 <div class="container" class:empty>
@@ -21,16 +36,16 @@
     {:else if input !== ''}
         <ul>
             {#if !exactMatchFound}
-                <li class="new">
+                <li class="new" on:click={e => handleNewClick(input)}>
                     <span>{input}</span>
                     <span class="item-prompt-wrapper">
                         <span class="prompt">+Create New Tag and Add</span>
                     </span>
                 </li>
             {/if}
-            {#each suggestions as item}
-                <li>
-                    <span>{item}</span>
+            {#each suggestions as { id, name }}
+                <li on:click={e => handleSuggestionClick(id)}>
+                    <span>{name}</span>
                     <span class="item-prompt-wrapper">
                         <span class="prompt">+Add</span>
                     </span>
