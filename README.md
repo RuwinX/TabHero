@@ -20,6 +20,10 @@ The `public` folder is where the svelte-built chrome extension lives. The html f
 
 The app would not work in development through `npm run dev`, because this will start the Svelte dev server, which serves the app in a web context, where the Chrome APIs are not available.
 
+## Behaviour
+
+- The app popup exists within the context of a single chrome tab. On switching chrome tabs, the popup should backup the state into the chrome storage and then a new app popup should be instantiated, loading data associated with the new tab from the storage.
+
 ## Anomalies
 
 1. [ ] When app is opened while a page is loading, two syncs occur: 1) App's mount syncs data from storage, 2) Page's "on load complete" syncs data from storage. If any action is performed between the two syncs (like adding a new tag to the page), the resultant state is overridden by the second sync.
