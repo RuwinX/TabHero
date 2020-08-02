@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
 
-    import { currentTabTags } from './store.js';
+    import { currentTabTags, currentTabLink } from './store.js';
 
     import TopBar from './components/TopBar.svelte';
     import Main from './pages/Main.svelte';
@@ -9,17 +9,16 @@
     import { getCurrentTab, registerOnTabUpdate } from './services/chrome';
     import { initAppState } from './sync';
 
-    let currentTab = {};
-
     onMount(async () => {
-        currentTab = await getCurrentTab();
-        const tags = await initAppState(currentTab.url);
+        const link = await getCurrentTab();
+        currentTabLink.set(link);
+        const tags = await initAppState($currentTabLink.url);
         currentTabTags.set(tags);
 
-        const removeListener = registerOnTabUpdate(async (newTab) => {
+        const removeListener = registerOnTabUpdate(async (newTabLink) => {
             // TODO: sync app state to storage before syncing new tab data from storage
-            currentTab = newTab;
-            const tags = await initAppState(currentTab.url);
+            currentTabLink.set(newTabLink);
+            const tags = await initAppState($currentTabLink.url);
             currentTabTags.set(tags);
         });
 
@@ -37,5 +36,5 @@
 
 <div class="container">
     <TopBar state="" user="" />
-    <Main currentTabLink={currentTab.url} />
+    <Main />
 </div>

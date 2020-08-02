@@ -1,11 +1,9 @@
 <script>
     import { v4 as uuidv4 } from 'uuid';
 
-    import { currentTabTags } from '../store.js';
+    import { currentTabTags, currentTabLink } from '../store.js';
 
     import MainView from './MainView.svelte';
-
-    export let currentTabLink = '';
 
     let addTagsInput = '';
 
@@ -32,7 +30,7 @@
 </script>
 
 <MainView
-    {currentTabLink}
+    currentTabLink={$currentTabLink ? $currentTabLink.url : ''}
     tags={$currentTabTags}
     {addTagsInput}
     on:tagClick={addExistingTag}
