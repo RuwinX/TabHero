@@ -25,7 +25,7 @@ export const Default = () => ({
     Component: MainView,
     props: {
         tags: tags,
-        currentTabLink: 'www.google.co.in',
+        currentTabUrl: 'www.google.co.in',
         addTagsInput: 'Re'
     },
     on: {
@@ -39,7 +39,7 @@ export const AddTagsCaseInsensitiveInputButNoMatch = () => ({
     Component: MainView,
     props: {
         tags: tags,
-        currentTabLink: 'www.google.co.in',
+        currentTabUrl: 'www.google.co.in',
         addTagsInput: 'recipe'
     },
     on: {

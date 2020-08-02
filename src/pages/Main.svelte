@@ -30,7 +30,7 @@
 </script>
 
 <MainView
-    currentTabLink={$currentTabLink ? $currentTabLink.url : ''}
+    currentTabUrl={$currentTabLink ? $currentTabLink.url : ''}
     tags={$currentTabTags}
     {addTagsInput}
     on:tagClick={addExistingTag}

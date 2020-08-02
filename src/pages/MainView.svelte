@@ -6,7 +6,7 @@
     import Heading from '../components/Heading.svelte';
 
     export let tags = [];
-    export let currentTabLink = '';
+    export let currentTabUrl = '';
     export let addTagsInput = '';
 
     $: tagSuggestions = tags
@@ -59,7 +59,7 @@
             <Heading text="Manage Tags" />
         </div>
         <div class="row">
-            <p>{currentTabLink}</p>
+            <p>{currentTabUrl}</p>
         </div>
         <div class="row">
             <div class="stretch">
