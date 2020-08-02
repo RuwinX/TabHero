@@ -1,5 +1,10 @@
+import { omit } from 'lodash-es';
+
 import { urlEqual, linkFromTab } from './utils';
-import { getAllTags, getAllLinks, getTagsLinks } from './services/storage';
+import {
+    getAllTags, getAllLinks, getTagsLinks,
+    setAllTags, setAllLinks, setTagsLinks
+} from './services/storage';
 
 export const initAppState = async (currentTab) => {
     /**
@@ -30,14 +35,6 @@ export const initAppState = async (currentTab) => {
     };
 };
 
-const appToStorage = () => {
-    /**
-     * take my app state (as args)
-     * process the data/reformat etc
-     * set the storage to that
-     */
-};
-
 const getLinkOfUrl = ({ links }, url) => {
     const res = Object.entries(links)
         .find(([ id, linkBody ]) => urlEqual(linkBody.url, url));
@@ -57,4 +54,48 @@ export const getTagIds = ({ tags, tagsLinks }, link) => {
         .filter(({ linkId }) => linkId === link.id)
         .map(({ tagId }) => tagId);
     return new Set(targetTagIds);
+};
+
+export const appToStorage = async (tags, currentLink) => {
+    // TODO: if any of the set storage calls fail, retry that which failed. If retry can't succeed, rollback those that succeeded
+
+    if (currentLink === undefined || currentLink === null) return;
+
+    const [ storageTags, storageLinks, storageTagsLinks ] = await Promise.all([
+        getAllTags(),
+        getAllLinks(),
+        getTagsLinks()
+    ]);
+
+    const linkHasTags = tags.some(tag => tag.added);
+    const updatedTags = {
+        ...storageTags,
+        ...Object.fromEntries(tags.map(({ id, name }) => [ id, { name } ]))
+    };
+    const updatedLinks = linkHasTags
+        ? { ...storageLinks, [currentLink.id]: omit(currentLink, ['id']) }
+        : omit(storageLinks, currentLink.id);
+
+    const candidateAddedTagIds = new Set(tags.filter(tag => tag.added).map(tag => tag.id));
+    let updatedTagsLinks = [];
+    for (const { tagId, linkId } of storageTagsLinks) {
+        if (linkId === currentLink.id) {
+            if (candidateAddedTagIds.has(tagId)) {
+                // they used to be and are still associated. Keep this rel record
+                // remove the candidate for the "append step"
+                updatedTagsLinks.push([ tagId, linkId ]);
+                candidateAddedTagIds.delete(tagId);
+            }
+        } else {
+            updatedTagsLinks.push([ tagId, linkId ]);
+        }
+    }
+    updatedTagsLinks = [
+        ...updatedTagsLinks,
+        ...[...candidateAddedTagIds].map(tagId => [ tagId, currentLink.id ])
+    ];
+
+    console.log(updatedTags);
+    console.log(updatedLinks);
+    console.log(updatedTagsLinks);
 };
