@@ -23,6 +23,8 @@ The app would not work in development through `npm run dev`, because this will s
 ## Behaviour
 
 - The app popup exists within the context of a single chrome tab. On switching chrome tabs, the popup should backup the state into the chrome storage and then a new app popup should be instantiated, loading data associated with the new tab from the storage.
+- When a browser tab changes, only the ID of the associated link in the DB should remain the same. Other fields like favicon, title and other web resources would get the lastest value from the new tab. This would result in an auto-update of the fields of that link. So when the title/favicon of a website is changed, our DB gets that change. Also, when a tab changes, we use the tab's url to find the link having that url in the DB. Because of this, the URL would automatically also persist like the ID.
+- Links get autocleaned, but tags and collections don't. This means when a link is no longer associated with any tag or collection, it gets deleted from the DB. But if a tag or collection is no longer associated with any link, it remains in the DB.
 
 ## Anomalies
 
