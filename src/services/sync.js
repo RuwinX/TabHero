@@ -1,12 +1,12 @@
-import { linkFromTab } from './utils';
+import { linkFromTab } from '../utils';
 import {
     getAllTags, getAllLinks, getTagsLinks,
     setAllTags, setAllLinks, setTagsLinks
-} from './services/storage';
+} from './storage';
 import {
     getLinkOfUrl, getTagIds,
     settleTags, settleLinks, settleTagsLinks
-} from './services/resolve';
+} from './resolve';
 
 export const initAppState = async (currentTab) => {
     /**
