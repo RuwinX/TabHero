@@ -1,7 +1,7 @@
-import { urlEqual } from './utils';
+import { urlEqual, linkFromTab } from './utils';
 import { getAllTags, getAllLinks, getTagsLinks } from './services/storage';
 
-export const initAppState = async (currentTabUrl) => {
+export const initAppState = async (currentTab) => {
     /**
      * Return the initialised the application state
      * given the current browser's tab url and the data in the persistent storage
@@ -14,17 +14,20 @@ export const initAppState = async (currentTabUrl) => {
     ]);
     const storageData = { tags, links, tagsLinks };
 
-    const targetLink = getLinkOfUrl(storageData, currentTabUrl);
+    const currentLink = getLinkOfUrl(storageData, currentTab.url);
 
-    const tagIds = targetLink === undefined
+    const tagIds = currentLink === undefined
         ? new Set()
-        : getTagIds(storageData, targetLink);
+        : getTagIds(storageData, currentLink);
 
-    return Object.entries(tags).map(([ id, tagBody ]) => ({
-        id,
-        name: tagBody.name,
-        added: tagIds.has(id)
-    }));
+    return {
+        tags: Object.entries(tags).map(([ id, tagBody ]) => ({
+            id,
+            name: tagBody.name,
+            added: tagIds.has(id)
+        })),
+        currentLink: linkFromTab(currentTab, currentLink)
+    };
 };
 
 const appToStorage = () => {

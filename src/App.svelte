@@ -10,16 +10,16 @@
     import { initAppState } from './sync';
 
     onMount(async () => {
-        const link = await getCurrentTab();
-        currentTabLink.set(link);
-        const tags = await initAppState($currentTabLink.url);
+        const currentTab = await getCurrentTab();
+        const { tags, currentLink } = await initAppState(currentTab);
         currentTabTags.set(tags);
+        currentTabLink.set(currentLink);
 
-        const removeListener = registerOnTabUpdate(async (newTabLink) => {
+        const removeListener = registerOnTabUpdate(async (newTab) => {
             // TODO: sync app state to storage before syncing new tab data from storage
-            currentTabLink.set(newTabLink);
-            const tags = await initAppState($currentTabLink.url);
+            const { tags, currentLink } = await initAppState(newTab);
             currentTabTags.set(tags);
+            currentTabLink.set(currentLink);
         });
 
         return () => {
