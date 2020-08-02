@@ -7,19 +7,19 @@
     import Main from './pages/Main.svelte';
 
     import { getCurrentTab, registerOnTabUpdate } from './services/chrome';
-    import { syncTagsState } from './sync';
+    import { initAppState } from './sync';
 
     let currentTab = {};
 
     onMount(async () => {
         currentTab = await getCurrentTab();
-        const tags = await syncTagsState(currentTab.url);
+        const tags = await initAppState(currentTab.url);
         currentTabTags.set(tags);
 
         const removeListener = registerOnTabUpdate(async (newTab) => {
             // TODO: sync app state to storage before syncing new tab data from storage
-            currentTab = await getCurrentTab();
-            const tags = await syncTagsState(currentTab.url);
+            currentTab = newTab;
+            const tags = await initAppState(currentTab.url);
             currentTabTags.set(tags);
         });
 

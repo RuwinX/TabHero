@@ -1,7 +1,12 @@
 import { urlEqual } from './utils';
 import { getAllTags, getAllLinks, getTagsLinks } from './services/storage';
 
-export const syncTagsState = async (currentTabUrl) => {
+export const initAppState = async (currentTabUrl) => {
+    /**
+     * Return the initialised the application state
+     * given the current browser's tab url and the data in the persistent storage
+     */
+
     const [ tags, links, tagsLinks ] = await Promise.all([
         getAllTags(),
         getAllLinks(),
