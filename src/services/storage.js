@@ -1,4 +1,4 @@
-import { getChromeStorage } from './chrome';
+import { getChromeStorage, setChromeStorage } from './chrome';
 
 export const getAllTags = () => {
     return getChromeStorage('tags', {});
@@ -16,4 +16,16 @@ export const getTagsLinks = async () => {
             linkId,
         };
     });
+};
+
+export const setAllTags = (tags) => {
+    return setChromeStorage('tags', tags);
+};
+
+export const setAllLinks = (links) => {
+    return setChromeStorage('links', links);
+};
+
+export const setTagsLinks = (tagsLinks) => {
+    return setChromeStorage('tags-links', tagsLinks);
 };

@@ -30,6 +30,14 @@ export const getChromeStorage = (key, defaultVal = []) => {
     });
 };
 
+export const setChromeStorage = (key, value) => {
+    return new Promise((resolve, reject) => {
+        chrome.storage.local.set({ [key]: value }, () => {
+            resolve();
+        });
+    });
+};
+
 export const registerOnTabUpdate = (handler) => {
     const listener = debounce((tabId, changeInfo, tab) => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
