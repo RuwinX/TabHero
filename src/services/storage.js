@@ -27,5 +27,5 @@ export const setAllLinks = (links) => {
 };
 
 export const setTagsLinks = (tagsLinks) => {
-    return setChromeStorage('tags-links', tagsLinks);
+    return setChromeStorage('tags-links', tagsLinks.map(({ tagId, linkId }) => [tagId, linkId]));
 };

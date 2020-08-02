@@ -83,16 +83,16 @@ export const appToStorage = async (tags, currentLink) => {
             if (candidateAddedTagIds.has(tagId)) {
                 // they used to be and are still associated. Keep this rel record
                 // remove the candidate for the "append step"
-                updatedTagsLinks.push([ tagId, linkId ]);
+                updatedTagsLinks.push({ tagId, linkId });
                 candidateAddedTagIds.delete(tagId);
             }
         } else {
-            updatedTagsLinks.push([ tagId, linkId ]);
+            updatedTagsLinks.push({ tagId, linkId });
         }
     }
     updatedTagsLinks = [
         ...updatedTagsLinks,
-        ...[...candidateAddedTagIds].map(tagId => [ tagId, currentLink.id ])
+        ...[...candidateAddedTagIds].map(tagId => ({ tagId, linkId: currentLink.id }))
     ];
 
     console.log(updatedTags);
