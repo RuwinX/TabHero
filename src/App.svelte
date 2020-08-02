@@ -27,7 +27,7 @@
 
         return async () => {
             removeListener();
-            // await appToStorage(get(currentTabTags), get(currentTabLink));
+            await appToStorage(get(currentTabTags), get(currentTabLink));
         };
     });
 </script>

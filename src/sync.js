@@ -95,7 +95,10 @@ export const appToStorage = async (tags, currentLink) => {
         ...[...candidateAddedTagIds].map(tagId => ({ tagId, linkId: currentLink.id }))
     ];
 
-    console.log(updatedTags);
-    console.log(updatedLinks);
-    console.log(updatedTagsLinks);
+    // console.log(updatedTags);
+    // console.log(updatedLinks);
+    // console.log(updatedTagsLinks);
+    await setAllTags(updatedTags)
+    await setAllLinks(updatedLinks)
+    await setTagsLinks(updatedTagsLinks)
 };
