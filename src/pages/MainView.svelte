@@ -43,6 +43,15 @@
     .row > .stretch {
         flex-grow: 1;
     }
+
+    .url-text {
+        font-size: var(--font-size-md);
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 </style>
 
 <div class="container">
@@ -59,7 +68,7 @@
             <Heading text="Manage Tags" />
         </div>
         <div class="row">
-            <p>{currentTabUrl}</p>
+            <p class="url-text">{currentTabUrl}</p>
         </div>
         <div class="row">
             <div class="stretch">
