@@ -44,3 +44,11 @@ export const EmptyRowsOnLastPage = () => ({
     },
     on: { tagClick: action('tagClicked') }
 });
+
+export const NoTags = () => ({
+    Component: TagPages,
+    props: {
+        tags: []
+    },
+    on: { tagClick: action('tagClicked') }
+});

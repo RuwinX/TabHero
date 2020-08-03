@@ -24,7 +24,11 @@
 
 <div class="container">
     <div class="content">
-        <TagGrid tags={pages[currentIndex]} minRows={3} on:tagClick />
+        {#if tags.length}
+            <TagGrid tags={pages[currentIndex]} minRows={3} on:tagClick />
+        {:else}
+            <p>Add a tag to get started</p>
+        {/if}
     </div>
     {#if pages.length > 1}
         <nav>
