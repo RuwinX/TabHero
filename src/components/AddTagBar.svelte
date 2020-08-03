@@ -79,6 +79,7 @@
     input {
         width: 100%;
         font-weight: var(--font-weight-thicc);
+        font-size: var(--font-size-md);
         color: inherit;
         outline: none;
     }
@@ -98,6 +99,7 @@
         cursor: default;
         padding: .2rem 1rem;
         font-weight: var(--font-weight-thin);
+        font-size: var(--font-size-md);
     }
     li:not(:last-child){
         border-bottom: solid 0.5px var(--col-primary);
