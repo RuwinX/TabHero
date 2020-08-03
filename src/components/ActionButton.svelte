@@ -6,7 +6,7 @@
     button {
         border: 1px solid transparent;
         border-radius: .5rem;
-        padding: .5rem .75rem;
+        padding: .4rem 1rem;
         background-color: var(--col-secondary);
 
         font-weight: var(--font-weight-md);

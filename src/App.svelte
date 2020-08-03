@@ -34,7 +34,7 @@
 
 <style>
     .container {
-        width: 340px;
+        width: 310px;
     }
 </style>
 

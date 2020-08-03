@@ -8,8 +8,8 @@
     --col-dark-primary: #000;
     --col-dark-secondary: #d8d8d8;
 
-    --font-size-xsm: .5rem;
-    --font-size-sm: .75rem;
+    --font-size-xsm: .7rem;
+    --font-size-sm: .8rem;
     --font-size-md: 1rem;
     --font-size-lg: 1.3rem;
     --font-size-xlg: 1.75rem;
@@ -23,5 +23,9 @@
     --font-family: 'Nunito Sans', sans-serif;
 
     font-family: var(--font-family);
-    font-size: 16px;  /* this is what determines 1rem */
+
+    /* this is what determines 1rem */
+    /* NOTE: CHANGE THIS VALUE TO RESCALE ALL THE FONT SIZES. DONT CHANGE THEIR rem VALUES. */
+    /* This is so that any styles that fail to use this variable will use the pixel value given here, which means it silently falls back into a --font-size-md */
+    font-size: 14px;
   }

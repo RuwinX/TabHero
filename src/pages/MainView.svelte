@@ -23,7 +23,7 @@
     }
 
     section {
-        padding: 1rem .5rem;
+        padding: 1rem .75rem;
 
         /* DEBUG */
         /* border: 1px solid black; */
