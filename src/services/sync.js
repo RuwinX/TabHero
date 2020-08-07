@@ -52,10 +52,7 @@ export const appToStorage = async (tags, currentLink) => {
     const updatedLinks = settleLinks({ links: storageLinks }, { tags, currentLink });
     const updatedTagsLinks = settleTagsLinks({ tagsLinks: storageTagsLinks }, { tags, currentLink });
 
-    console.log(updatedTags);
-    console.log(updatedLinks);
-    console.log(updatedTagsLinks);
-    // await setAllTags(updatedTags)
-    // await setAllLinks(updatedLinks)
-    // await setTagsLinks(updatedTagsLinks)
+    await setAllTags(updatedTags)
+    await setAllLinks(updatedLinks)
+    await setTagsLinks(updatedTagsLinks)
 };

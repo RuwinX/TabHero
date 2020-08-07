@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     import { get } from 'svelte/store';
 
     import { currentTabTags, currentTabLink } from './store.js';
@@ -17,9 +17,6 @@
         currentTabLink.set(currentLink);
 
         const removeListener = registerOnTabUpdate(async (newTab) => {
-            // TODO: sync app state to storage before syncing new tab data from storage
-            await appToStorage(get(currentTabTags), get(currentTabLink));
-
             const { tags, currentLink } = await initAppState(newTab);
             currentTabTags.set(tags);
             currentTabLink.set(currentLink);
@@ -27,9 +24,14 @@
 
         return async () => {
             removeListener();
-            await appToStorage(get(currentTabTags), get(currentTabLink));
         };
     });
+
+    const unsubscribe = currentTabTags.subscribe(async tags => {
+        await appToStorage(get(currentTabTags), get(currentTabLink));
+    });
+
+    onDestroy(unsubscribe);
 </script>
 
 <style>
