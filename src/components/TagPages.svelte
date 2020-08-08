@@ -1,6 +1,7 @@
 <script>
     import { chunk, range } from 'lodash-es';
     import TagGrid from './TagGrid.svelte'
+    import Info from './Info.svelte';
 
     export let tags = [];
 
@@ -27,7 +28,10 @@
         {#if tags.length}
             <TagGrid tags={pages[currentIndex]} minRows={3} on:tagClick />
         {:else}
-            <p>Add a tag to get started</p>
+            <Info content={[
+                [true, 'Add a tag'],
+                [false, 'to get started'],
+            ]} />
         {/if}
     </div>
     {#if pages.length > 1}
@@ -46,6 +50,17 @@
 </div>
 
 <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+
+        /* DEBUG */
+        /* background-color: yellow; */
+        /* border: 1px solid black; */
+    }
+
     nav {
         display: flex;
         justify-content: space-between;
