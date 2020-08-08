@@ -1,8 +1,8 @@
-import { linkFromTab } from '../utils';
+import { linkFromTab } from './utils';
 import {
     getAllTags, getAllLinks, getTagsLinks,
     setAllTags, setAllLinks, setTagsLinks
-} from './storage';
+} from './services/storage';
 import {
     getLinkOfUrl, getTagIds,
     settleTags, settleLinks, settleTagsLinks

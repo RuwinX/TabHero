@@ -8,7 +8,7 @@
     import Main from './pages/Main.svelte';
 
     import { getCurrentTab, registerOnTabUpdate } from './services/chrome';
-    import { initAppState, appToStorage } from './services/sync';
+    import { initAppState, appToStorage } from './sync';
 
     onMount(async () => {
         const currentTab = await getCurrentTab();
