@@ -14,9 +14,14 @@ TabHero is a Chrome extension for tab management.
 The components can be developed in isolation in storybook: `npm run storybook`
 
 ### Developing the App
-Once the chrome extension is loaded into the browser, make sure to seed the chrome extension's storage with data. Do this by setting the data from the `fixtures` directory into the extension's `chrome.storage.local` using a tool like [Storage Area Explorer](https://chrome.google.com/webstore/detail/storage-area-explorer/ocfjjjjhkpapocigimmppepjgfdecjkb?hl=en).
 
-The `public` folder is where the svelte-built chrome extension lives. The html files there should reference the svelte js bundles. Hot-reloading isn't set up. So to develop, run `npm run build` to build the app, and reload the extension.
+The `public` folder is where the svelte-built chrome extension lives. The html files there should reference the svelte js bundles. Hot-reloading isn't set up. So to develop, use the following workflow:
+
+1. Run `npm run build` to build the app.
+2. Put chrome in developer mode and load the extension into chrome using "Load Unpacked".
+3. Seed the extension's `chrome.storage.local` with data from the `fixtures` directory, using the file names as the key and their contents as the value. For this, use a tool like [Storage Area Explorer](https://chrome.google.com/webstore/detail/storage-area-explorer/ocfjjjjhkpapocigimmppepjgfdecjkb?hl=en).
+4. You can now either run the extension's popup, or view the extension in its own tab by visiting `chrome-extension://<your-chrome-extension-id>/index.html`
+5. Continue development by re-building the app and re-opening the popup or refreshing the extension's dedicated development tab. Reloading the extension itself is not necessary.
 
 The app would not work in development through `npm run dev`, because this will start the Svelte dev server, which serves the app in a web context, where the Chrome APIs are not available.
 
