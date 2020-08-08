@@ -3,14 +3,14 @@
     export let fontSize = 'medium';
 </script>
 
-<div class="container"
+<p class="container"
     class:small={fontSize === 'small'}
     class:medium={fontSize === 'medium'}>
-    {#each content as [ text, bold ], i}
+    {#each content as [ bold, text ], i}
         <span> </span>
         <span class:bold>{text}</span>
     {/each}
-</div>
+</p>
 
 <style>
     .container {
