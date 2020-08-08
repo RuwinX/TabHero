@@ -33,8 +33,13 @@
     .row:not(:last-child) {
         margin-bottom: .75rem;
     }
-    .row > .stretch {
+
+    .stretch {
+        /* This element should have normal layout, so that its child get's the automatic width: 100% */
         flex-grow: 1;
+    }
+    .stretch > :global(*) {
+        height: 100%;
     }
 
     .url-text {
@@ -44,6 +49,10 @@
         text-overflow: ellipsis;
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    .tag-pages-wrapper {
+        min-height: 8rem;
     }
 </style>
 
@@ -64,7 +73,7 @@
             <p class="url-text">{currentTabUrl}</p>
         </div>
         <div class="row">
-            <div class="stretch">
+            <div class="stretch tag-pages-wrapper">
                 <TagPages {tags} on:tagClick />
             </div>
         </div>

@@ -35,6 +35,20 @@ export const Default = () => ({
     }
 });
 
+export const NoTagsExist = () => ({
+    Component: MainView,
+    props: {
+        tags: [],
+        currentTabUrl: 'www.google.co.in',
+        addTagsInput: ''
+    },
+    on: {
+        tagClick: action('tagClicked'),
+        selectSuggestion: action('selectSuggestion'),
+        selectNew: action('selectNew')
+    }
+});
+
 export const AddTagsCaseInsensitiveInputButNoMatch = () => ({
     Component: MainView,
     props: {
