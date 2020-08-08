@@ -15,13 +15,6 @@
 </script>
 
 <style>
-    .container {
-        border: .1rem solid var(--col-primary);
-        border-top: 0;
-        border-bottom-left-radius: .5rem;
-        border-bottom-right-radius: .5rem;
-    }
-
     section {
         padding: 1rem .75rem;
 

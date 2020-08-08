@@ -38,9 +38,18 @@
     .container {
         width: 310px;
     }
+
+    .body {
+        border: .1rem solid var(--col-primary);
+        border-top: 0;
+        border-bottom-left-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+    }
 </style>
 
 <div class="container">
     <TopBar state="" user="" />
-    <Main />
+    <div class="body">
+        <Main />
+    </div>
 </div>
