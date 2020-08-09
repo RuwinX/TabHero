@@ -22,58 +22,75 @@
     }
 </script>
 
-<div class="container" class:empty>
+<div class="container">
     <div class="input-container" class:empty>
         <input
             bind:value={input}
             type="text"
             placeholder="Search from your tag library or create a new tag!">
     </div>
-    {#if input.length > MAX_LEN}
-        <div class="info-prompt-wrapper">
-            <span class="prompt">Please add tags under {MAX_LEN + 1} characters only</span>
-        </div>
-    {:else if input !== ''}
-        <ul>
-            {#if !exactMatchFound}
-                <li class="new" on:click={e => handleNewClick(input)}>
-                    <span>{input}</span>
-                    <span class="item-prompt-wrapper">
-                        <span class="prompt">+Create New Tag and Add</span>
-                    </span>
-                </li>
+    {#if !empty}
+        <div class="suggestions-container">
+            {#if input.length > MAX_LEN}
+                <div class="info-prompt-wrapper">
+                    <span class="prompt">Please add tags under {MAX_LEN + 1} characters only</span>
+                </div>
+            {:else}
+                <ul>
+                    {#if !exactMatchFound}
+                        <li class="new" on:click={e => handleNewClick(input)}>
+                            <span>{input}</span>
+                            <span class="item-prompt-wrapper">
+                                <span class="prompt">+Create New Tag and Add</span>
+                            </span>
+                        </li>
+                    {/if}
+                    {#each suggestions as { id, name }}
+                        <li on:click={e => handleSuggestionClick(id)}>
+                            <span>{name}</span>
+                            <span class="item-prompt-wrapper">
+                                <span class="prompt">+Add</span>
+                            </span>
+                        </li>
+                    {/each}
+                </ul>
             {/if}
-            {#each suggestions as { id, name }}
-                <li on:click={e => handleSuggestionClick(id)}>
-                    <span>{name}</span>
-                    <span class="item-prompt-wrapper">
-                        <span class="prompt">+Add</span>
-                    </span>
-                </li>
-            {/each}
-        </ul>
+        </div>
     {/if}
 </div>
 
 <style>
     .container {
-        color: var(--col-primary);
+        /* the absolute positioned suggestions box needs to have a relatively positioned parent */
+        position: relative;
 
-        border: solid 0.5px var(--col-primary);
-        border-top-left-radius: .25rem;
-        border-top-right-radius: .25rem;
-    }
-    .container.empty {
-        border-radius: .25rem;
+        color: var(--col-primary);
     }
 
     .input-container {
         /* without horizontal padding, input always overflows the container */
         padding: .5rem 1rem;
-        border-bottom: solid 0.5px var(--col-primary);
+
+        border: solid 0.5px var(--col-primary);
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
     }
     .input-container.empty {
-        border-bottom: none;
+        border-radius: .25rem;
+    }
+
+    .suggestions-container {
+        /* these styles are to facilitate the absolutely positioned suggestion box */
+        position: absolute;  /* this element's parent should be relatively positioned so that this works */
+        left: 0;
+        right: 0;
+        overflow: auto;
+        z-index: 10;
+        max-height: 3.75rem;  /* cut off the scrollable view's last visible item */
+        background-color: var(--col-light-primary);
+
+        border: solid 0.5px var(--col-primary);
+        border-top: 0;
     }
 
     input {
@@ -87,12 +104,6 @@
         font-weight: var(--font-weight-thinn);
         font-size: var(--font-size-sm);
         font-style: oblique;
-    }
-
-    ul {
-        /* cut off the scrollable view's last visible item */
-        max-height: 5rem;
-        overflow-y: scroll;
     }
 
     li {
