@@ -9,28 +9,27 @@ export default {
     component: AddTagBar,
 };
 
+const eventHandlers = {
+    selectSuggestion: action('selectSuggestion'),
+    selectNew: action('selectNew')
+};
+
 export const EmptyInput = () => ({
     Component: AddTagBar,
     props: {
         input: '',
         suggestions: [],
     },
-    on: {
-        selectSuggestion: action('selectSuggestion'),
-        selectNew: action('selectNew')
-    },
+    on: eventHandlers,
 });
 
 export const ManySuggestions = () => ({
     Component: AddTagBar,
     props: {
         input: 'G',
-        suggestions: Array(10).fill({ id: 'xyz', name: 'Google' }),
+        suggestions: Array(10).fill({ id: 'xyz', added: false, name: 'Google' }),
     },
-    on: {
-        selectSuggestion: action('selectSuggestion'),
-        selectNew: action('selectNew')
-    },
+    on: eventHandlers,
 });
 
 export const FewSuggestions = () => ({
@@ -38,26 +37,33 @@ export const FewSuggestions = () => ({
     props: {
         input: 'Go',
         suggestions: [
-            { id: 'xyz', name: 'Goa' },
-            { id: 'xyz', name: 'Google' }
+            { id: 'xyz', added: false, name: 'Goa' },
+            { id: 'xyz', added: false, name: 'Google' }
         ],
     },
-    on: {
-        selectSuggestion: action('selectSuggestion'),
-        selectNew: action('selectNew')
+    on: eventHandlers,
+});
+
+export const SomeAddedSuggestions = () => ({
+    Component: AddTagBar,
+    props: {
+        input: 'Go',
+        suggestions: [
+            { id: 'xyz', added: false, name: 'Goa' },
+            { id: 'xyz', added: true, name: 'Google' },
+            { id: 'xyz', added: true, name: 'Golang' }
+        ],
     },
+    on: eventHandlers,
 });
 
 export const ExactMatch = () => ({
     Component: AddTagBar,
     props: {
         input: 'Goa',
-        suggestions: [{ id: 'xyz', name: 'Goa' }],
+        suggestions: [{ id: 'xyz', added: false, name: 'Goa' }],
     },
-    on: {
-        selectSuggestion: action('selectSuggestion'),
-        selectNew: action('selectNew')
-    },
+    on: eventHandlers,
 });
 
 export const InputMaxLength = () => ({
@@ -66,10 +72,7 @@ export const InputMaxLength = () => ({
         input: Array(ADD_TAG_INPUT_MAX_LENGTH).fill('G').join(''),
         suggestions: [],
     },
-    on: {
-        selectSuggestion: action('selectSuggestion'),
-        selectNew: action('selectNew')
-    },
+    on: eventHandlers,
 });
 
 export const InputMaxLengthExceeded = () => ({
@@ -78,10 +81,7 @@ export const InputMaxLengthExceeded = () => ({
         input: Array(ADD_TAG_INPUT_MAX_LENGTH + 1).fill('G').join(''),
         suggestions: [],
     },
-    on: {
-        selectSuggestion: action('selectSuggestion'),
-        selectNew: action('selectNew')
-    },
+    on: eventHandlers,
 });
 
 

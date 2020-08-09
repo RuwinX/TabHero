@@ -10,8 +10,7 @@
     export let addTagsInput = '';
 
     $: tagSuggestions = tags
-        .filter(tag => tag.name.toLowerCase().startsWith(addTagsInput.toLowerCase()))
-        .map(({ id, name }) => ({ id, name }));
+        .filter(tag => tag.name.toLowerCase().startsWith(addTagsInput.toLowerCase()));
 </script>
 
 <style>

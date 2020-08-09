@@ -45,11 +45,15 @@
                             </span>
                         </li>
                     {/if}
-                    {#each suggestions as { id, name }}
+                    {#each suggestions as { id, added, name }}
                         <li on:click={e => handleSuggestionClick(id)}>
                             <span>{name}</span>
                             <span class="item-prompt-wrapper">
-                                <span class="prompt">+Add</span>
+                                {#if added}
+                                    <span class="prompt prompt-remove">-Remove</span>
+                                {:else}
+                                    <span class="prompt">+Add</span>
+                                {/if}
                             </span>
                         </li>
                     {/each}
@@ -130,6 +134,9 @@
         font-weight: var(--font-weight-thicc);
         color: var(--col-tertiary);
         vertical-align: middle;
+    }
+    .prompt-remove {
+        color: var(--col-secondary);
     }
 
     .info-prompt-wrapper {
