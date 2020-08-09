@@ -36,10 +36,20 @@
 
 <style>
     .container {
+        /* Max width and height of popup: https://stackoverflow.com/a/47570170 */
         width: 310px;
+        height: 540px;
+
+        display: flex;
+        flex-direction: column;
     }
 
     .body {
+        flex-grow: 1;
+
+        /* the app body has a border. Hence, overflow at this layer, not at the app container layer */
+        overflow: auto;
+
         border: .1rem solid var(--col-primary);
         border-top: 0;
         border-bottom-left-radius: .5rem;
