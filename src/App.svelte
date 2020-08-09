@@ -35,6 +35,10 @@
 </script>
 
 <style>
+    :global(*)::-webkit-scrollbar {
+        display: none;
+    }
+
     .container {
         /* Max width and height of popup: https://stackoverflow.com/a/47570170 */
         width: 310px;
