@@ -16,7 +16,7 @@
 
     li {
         display: flex;
-        align-items: stretch;
+        align-items: center;
         padding: .25rem;
     }
 
@@ -33,6 +33,7 @@
 
         white-space: nowrap;
         overflow-x: scroll;
+        overflow-y: hidden;  /* without this, a slight y overflow exists */
     }
     .title:hover {
         text-decoration: underline;
