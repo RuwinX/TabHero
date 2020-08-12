@@ -17,7 +17,9 @@
     li {
         display: flex;
         align-items: center;
-        padding: .25rem;
+    }
+    li:not(:last-child) {
+        margin-bottom: .5rem;
     }
 
     img {
