@@ -9,8 +9,6 @@
 
 <style>
     .container {
-        padding: .5rem;
-
         /* DEBUG */
         /* background-color: red; */
         /* border: 1px solid blue; */
@@ -18,7 +16,7 @@
 
     li {
         display: flex;
-        align-items: center;
+        align-items: stretch;
         padding: .25rem;
     }
 
@@ -35,6 +33,9 @@
 
         white-space: nowrap;
         overflow-x: scroll;
+    }
+    .title:hover {
+        text-decoration: underline;
     }
 </style>
 
