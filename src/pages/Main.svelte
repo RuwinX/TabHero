@@ -1,5 +1,5 @@
 <script>
-    import { v4 as uuidv4 } from 'uuid';
+    import { uniqueId } from '../utils';
 
     import { currentTabTags, currentTabLink } from '../store.js';
 
@@ -21,7 +21,7 @@
     function addNewTag(event) {
         const { tagName } = event.detail;
         const newTag = {
-            id: uuidv4(),
+            id: uniqueId(),
             name: tagName,
             added: true
         };

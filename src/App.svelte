@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
     import { get } from 'svelte/store';
-    import { customAlphabet } from 'nanoid';
+    import { uniqueId } from './utils';
 
     import { currentTabTags, currentTabLink } from './store.js';
 
@@ -23,11 +23,9 @@
             currentTabLink.set(currentLink);
         });
 
-        console.log(window.crypto);
-        if (window.crypto) {
-            const nanoid = customAlphabet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-!?@#$%^&*(){}[]|<>.,;:+=/', 18);
-            console.log(nanoid());
-        }
+        window.onclick = () => {
+            console.log(uniqueId());
+        };
 
         return async () => {
             removeListener();
