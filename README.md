@@ -40,3 +40,4 @@ The app would not work in development through `npm run dev`, because this will s
 1. [ ] Visual element showing whether the app is synced with local storage or synced with the backend, like how google docs does it.
 2. [ ] In AddTag bar, even when a tag has been added, it shows up in the search results. Either we don't show them (but then we'd have to give user feedback somehow) or we let the user either 1) see a non-clickable "already added" prompt or 2) see a "remove tag" prompt, making the entire component a Add/Remove Tag component
 3. [ ] In Save All Open Tabs, let the user 1) select which tabs to save to the collection and 2) choose if they wanna close all the tabs that are saved to the collection
+4. [ ] Search for links using multiple tabs, not just searching by one tab
