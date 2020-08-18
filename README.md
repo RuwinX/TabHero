@@ -41,3 +41,7 @@ The app would not work in development through `npm run dev`, because this will s
 2. [ ] In AddTag bar, even when a tag has been added, it shows up in the search results. Either we don't show them (but then we'd have to give user feedback somehow) or we let the user either 1) see a non-clickable "already added" prompt or 2) see a "remove tag" prompt, making the entire component a Add/Remove Tag component
 3. [ ] In Save All Open Tabs, let the user 1) select which tabs to save to the collection and 2) choose if they wanna close all the tabs that are saved to the collection
 4. [ ] Search for links using multiple tabs, not just searching by one tab
+
+## Heads Up
+
+- Unique IDs use the `nanoid` npm package, which unfortunately doesn't comply with rollup's bundling conventions. So we use a workaround, [rollup-plugin-inject-process-env](https://www.npmjs.com/package/rollup-plugin-inject-process-env) to make it work. A discussion on this can be found on [rollup/issues#487](https://github.com/rollup/rollup/issues/487).
