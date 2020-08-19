@@ -8,12 +8,6 @@
 </script>
 
 <style>
-    .container {
-        /* DEBUG */
-        /* background-color: red; */
-        /* border: 1px solid blue; */
-    }
-
     li {
         display: flex;
         align-items: center;
