@@ -3,20 +3,43 @@
     import Heading from '../components/Heading.svelte';
     import ActionButton from '../components/ActionButton.svelte';
     import Info from '../components/Info.svelte';
+    import NameInput from '../components/NameInput.svelte';
 
     export let links = [];
+    export let collectionName = '';
 </script>
+
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+    }
+
+    .row:not(:last-child) {
+        margin-bottom: .75rem;
+    }
+
+    section {
+        padding: 1rem .75rem;
+    }
+    section:not(:last-child) {
+        border-bottom: .1rem solid var(--col-primary);
+    }
+</style>
 
 <div class="container">
     <section>
-        <div class="row">
+        <div class="row center">
+            <NameInput bind:value={collectionName} />
+        </div>
+        <div class="row center">
             <Info content={[
                 [false, 'You have'],
                 [true, `${links.length} tabs`],
                 [false, 'currently open'],
             ]}/>
         </div>
-        <div class="row">
+        <div class="row center">
             <ActionButton text="Save" />
         </div>
     </section>
