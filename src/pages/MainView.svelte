@@ -25,20 +25,13 @@
         border-bottom: .1rem solid var(--col-primary);
     }
 
-    .row {
+    .center {
         display: flex;
         justify-content: center;
     }
+
     .row:not(:last-child) {
         margin-bottom: .75rem;
-    }
-
-    .stretch {
-        /* This element should have normal layout, so that its child get's the automatic width: 100% */
-        flex-grow: 1;
-    }
-    .stretch > :global(*) {
-        height: 100%;
     }
 
     .url-text {
@@ -52,39 +45,41 @@
 
     .tag-pages-wrapper {
         min-height: 8rem;
+        display: flex;
+    }
+    .tag-pages-wrapper > :global(*) {
+        /* the min-height of the parent means we gotta center this child */
+        /* height: 100% here doesn't work for some reason, so using this instead */
+        flex: 1;
     }
 </style>
 
 <div class="container">
     <section>
-        <div class="row">
+        <div class="row center">
             <ActionButton text="Save All Open Tabs" />
         </div>
-        <div class="row">
+        <div class="row center">
             <SearchButton text="Search Tab Hero" />
         </div>
     </section>
     <section>
-        <div class="row">
+        <div class="row center">
             <Heading text="Manage Tags" />
         </div>
-        <div class="row">
+        <div class="row center">
             <p class="url-text">{currentTabUrl}</p>
         </div>
-        <div class="row">
-            <div class="stretch tag-pages-wrapper">
-                <TagPages {tags} on:tagClick />
-            </div>
+        <div class="row tag-pages-wrapper">
+            <TagPages {tags} on:tagClick />
         </div>
     </section>
     <section>
-        <div class="row">
+        <div class="row center">
             <Heading text="Add Tags" />
         </div>
         <div class="row">
-            <div class="stretch">
-                <AddTagBar suggestions={tagSuggestions} bind:input={addTagsInput} on:selectSuggestion on:selectNew />
-            </div>
+            <AddTagBar suggestions={tagSuggestions} bind:input={addTagsInput} on:selectSuggestion on:selectNew />
         </div>
     </section>
 </div>
