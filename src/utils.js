@@ -24,10 +24,10 @@ export const linkFromTab = (tab, link) => {
 };
 
 export const createTab = (chromeTab) => {
-    const { title, url, favIconUrl } = chromeTab;
+    const { title, url, favIconUrl, pendingUrl } = chromeTab;
     return {
         title,
-        url,
+        url: url === '' ? pendingUrl : url,
         faviconUrl: favIconUrl || '',
     };
 };

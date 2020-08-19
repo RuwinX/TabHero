@@ -12,7 +12,8 @@ export const getCurrentTab = () => {
 
             resolve(createTab({
                 title,
-                url: url === '' ? pendingUrl : url,
+                url,
+                pendingUrl,
                 favIconUrl
             }))
         });
