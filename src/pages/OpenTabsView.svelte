@@ -9,24 +9,6 @@
     export let collectionName = '';
 </script>
 
-<style>
-    .center {
-        display: flex;
-        justify-content: center;
-    }
-
-    .row:not(:last-child) {
-        margin-bottom: .75rem;
-    }
-
-    section {
-        padding: 1rem .75rem;
-    }
-    section:not(:last-child) {
-        border-bottom: .1rem solid var(--col-primary);
-    }
-</style>
-
 <div class="container">
     <section>
         <div class="row center">

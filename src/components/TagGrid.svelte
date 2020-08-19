@@ -32,7 +32,7 @@
         /* border: 1px solid black; */
     }
 
-    .row {
+    .grid-row {
         display: flex;
         justify-content: space-between;
     }
@@ -40,9 +40,9 @@
 
 <div class="container">
     {#each rows as [i, cells]}
-        <div class="row">
+        <div class="grid-row">
             {#each cells as tag}
-                <div class="cell">
+                <div class="grid-cell">
                     <Tag name={tag.name} added={tag.added} on:click={e => dispatch('tagClick', { tagId: tag.id })} />
                 </div>
             {/each}

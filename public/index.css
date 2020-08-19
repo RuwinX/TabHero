@@ -28,4 +28,23 @@
     /* NOTE: CHANGE THIS VALUE TO RESCALE ALL THE FONT SIZES. DONT CHANGE THEIR rem VALUES. */
     /* This is so that any styles that fail to use this variable will use the pixel value given here, which means it silently falls back into a --font-size-md */
     font-size: 14px;
-  }
+}
+
+/* UTILITY STYLE CLASSES */
+/* make sure that no markup in the svelte components is given these classes/tags/etc unless done so intentionally, because these styles will apply */
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.row:not(:last-child) {
+    margin-bottom: .75rem;
+}
+
+section {
+    padding: 1rem .75rem;
+}
+section:not(:last-child) {
+    border-bottom: .1rem solid var(--col-primary);
+}

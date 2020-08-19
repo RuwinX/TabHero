@@ -14,26 +14,6 @@
 </script>
 
 <style>
-    section {
-        padding: 1rem .75rem;
-
-        /* DEBUG */
-        /* border: 1px solid black; */
-        /* background-color: yellow; */
-    }
-    section:not(:last-child) {
-        border-bottom: .1rem solid var(--col-primary);
-    }
-
-    .center {
-        display: flex;
-        justify-content: center;
-    }
-
-    .row:not(:last-child) {
-        margin-bottom: .75rem;
-    }
-
     .url-text {
         font-size: var(--font-size-md);
         overflow-x: hidden;
