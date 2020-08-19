@@ -49,8 +49,8 @@ export default {
 		// instead of npm run dev), minify
 		production && terser(),
 		injectProcessEnv({
-            NODE_ENV: 'production',
-         }),
+            		NODE_ENV: 'production',
+         	}),
 	],
 	watch: {
 		clearScreen: false
