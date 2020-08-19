@@ -15,7 +15,15 @@ export const getCurrentTab = () => {
                 url,
                 pendingUrl,
                 favIconUrl
-            }))
+            }));
+        });
+    });
+};
+
+export const getCurrentWindowTabs = () => {
+    return new Promise((resolve, reject) => {
+        chrome.tabs.query({ currentWindow: true }, (tabs) => {
+            resolve(tabs.map(createTab));
         });
     });
 };
