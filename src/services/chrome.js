@@ -1,4 +1,5 @@
 import { debounce } from 'lodash-es';
+import { createTab } from '../utils';
 
 export const getCurrentTab = () => {
     return new Promise((resolve, reject) => {
@@ -9,11 +10,11 @@ export const getCurrentTab = () => {
                 return reject(new Error('Impossible state'));
             }
 
-            resolve({
+            resolve(createTab({
                 title,
                 url: url === '' ? pendingUrl : url,
-                faviconUrl: favIconUrl
-            });
+                favIconUrl
+            }))
         });
     });
 };
@@ -45,12 +46,7 @@ export const registerOnTabUpdate = (handler) => {
             if (tabId === currentTab.id) {
                 // WARNING: tab.* and changeInfo.* properties have very inconsistent values even when triggered repeatedly through the same events.
                 // tab.* seem to be more consistent. changeinfo title, url, favicon always seem to be undefined.
-                const newTab = {
-                    title: tab.title,
-                    url: tab.url,
-                    faviconUrl: tab.favIconUrl
-                };
-                handler(newTab);
+                handler(createTab(tab));
             }
         })
     }, 1500);

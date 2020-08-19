@@ -23,6 +23,15 @@ export const linkFromTab = (tab, link) => {
     };
 };
 
+export const createTab = (chromeTab) => {
+    const { title, url, favIconUrl } = chromeTab;
+    return {
+        title,
+        url,
+        faviconUrl: favIconUrl || '',
+    };
+};
+
 export const twelveHourTime = (date) => {
     // src: https://stackoverflow.com/a/8888498
     let hours = date.getHours();
