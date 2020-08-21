@@ -1,9 +1,11 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
     import { get } from 'svelte/store';
+    import { Router, Route } from "svelte-routing";
 
     import TopBar from './components/TopBar.svelte';
     import Main from './pages/Main.svelte';
+    import OpenTabs from './pages/OpenTabs.svelte';
 
     import { currentTabTags, currentTabLink } from './store.js';
     import { getCurrentTab, registerOnTabUpdate } from './services/chrome';
@@ -59,6 +61,9 @@
 <div class="container">
     <TopBar state="" user="" />
     <div class="body">
-        <Main />
+        <Router>
+            <Route path="/index.html" component={Main} />
+            <Route path="/open-tabs" component={OpenTabs} />
+        </Router>
     </div>
 </div>

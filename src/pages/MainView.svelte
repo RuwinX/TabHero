@@ -1,4 +1,6 @@
 <script>
+    import { Link } from 'svelte-routing';
+
     import ActionButton from '../components/ActionButton.svelte';
     import SearchButton from '../components/SearchButton.svelte';
     import TagPages from '../components/TagPages.svelte';
@@ -37,7 +39,9 @@
 <div class="container">
     <section>
         <div class="row center">
-            <ActionButton text="Save All Open Tabs" />
+            <Link to="/open-tabs">
+                <ActionButton text="Save All Open Tabs" />
+            </Link>
         </div>
         <div class="row center">
             <SearchButton text="Search Tab Hero" />

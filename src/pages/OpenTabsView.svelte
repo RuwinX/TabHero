@@ -1,16 +1,33 @@
 <script>
+    import { Link } from 'svelte-routing';
+
     import LinksList from '../components/LinksList.svelte';
     import Heading from '../components/Heading.svelte';
     import ActionButton from '../components/ActionButton.svelte';
     import Info from '../components/Info.svelte';
     import NameInput from '../components/NameInput.svelte';
+    import NavLink from '../components/NavLink.svelte';
 
     export let links = [];
     export let collectionName = '';
 </script>
 
+<style>
+    nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
 <div class="container">
     <section>
+        <div class="row">
+            <nav>
+                <Link to="/index.html">
+                    <NavLink text="Cancel" />
+                </Link>
+            </nav>
+        </div>
         <div class="row center">
             <NameInput bind:value={collectionName} />
         </div>
