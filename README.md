@@ -45,3 +45,4 @@ The app would not work in development through `npm run dev`, because this will s
 ## Heads Up
 
 - Unique IDs use the `nanoid` npm package, which unfortunately doesn't comply with rollup's bundling conventions. So we use a workaround, [rollup-plugin-inject-process-env](https://www.npmjs.com/package/rollup-plugin-inject-process-env) to make it work. A discussion on this can be found on [rollup/issues#487](https://github.com/rollup/rollup/issues/487).
+- `rollup-plugin-inject-process-env` breaks the functionality of `rollup-plugin-postcss` when placed before `rollup-plugin-postcss` in the Rollup plugin pipeline. Don't know why this happens. We need `rollup-plugin-postcss` so we can use the `@tabhero/svelte-components` package. Could file a bug report on `rollup-plugin-inject-process-env` or use a different plugin for the same purpose, or put up with it for now.

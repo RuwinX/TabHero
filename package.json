@@ -20,12 +20,14 @@
     "rollup": "^1.20.0",
     "rollup-plugin-inject-process-env": "^1.3.0",
     "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-postcss": "^3.1.5",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.22.2",
     "svelte-loader": "^2.13.6"
   },
   "dependencies": {
+    "@tabhero/svelte-components": "^0.2.0",
     "lodash-es": "^4.17.15",
     "nanoid": "^3.1.12",
     "normalize-url": "^5.0.0",

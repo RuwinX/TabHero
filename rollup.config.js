@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import injectProcessEnv from 'rollup-plugin-inject-process-env';
+import postcss from 'rollup-plugin-postcss';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -48,9 +49,12 @@ export default {
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
 		production && terser(),
+
+		postcss(),
+
 		injectProcessEnv({
-            		NODE_ENV: 'production',
-         	}),
+			NODE_ENV: 'production',
+		}),
 	],
 	watch: {
 		clearScreen: false
