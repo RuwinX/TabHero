@@ -1,6 +1,6 @@
 import { linkFromTab } from './utils';
 import {
-    getAllTags, getAllLinks, getTagsLinks,
+    getAllTags, getAllLinks, getTagsLinks, getAllCollections,
     setAllTags, setAllLinks, setTagsLinks
 } from './services/storage';
 import {
@@ -34,6 +34,31 @@ export const initAppState = async (currentTab) => {
             added: tagIds.has(id)
         })),
         currentLink: linkFromTab(currentTab, currentLink)
+    };
+};
+
+export const initOpenTabsState = async (openTabs) => {
+    /**
+     * Return the current open links and all collections
+     * given the current window's open tabs and the data in the persistent storage
+     */
+
+    const [ links, collections ] = await Promise.all([
+        getAllLinks(),
+        getAllCollections()
+    ]);
+
+    const openLinks = openTabs.map(tab => {
+        const link = getLinkOfUrl({ links }, tab.url);
+        return linkFromTab(tab, link);
+    });
+
+    return {
+        openLinks,
+        collections: Object.entries(collections).map(([ id, body ]) => ({
+            id,
+            ...body
+        }))
     };
 };
 
