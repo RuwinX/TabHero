@@ -8,10 +8,10 @@ import {
     settleTags, settleLinks, settleTagsLinks
 } from './resolve';
 
-export const initAppState = async (currentTab) => {
+export const initTagsState = async (currentTab) => {
     /**
-     * Return the initialised the application state
-     * given the current browser's tab url and the data in the persistent storage
+     * Return all tags and whether each of them is associated with the currently active link
+     * given the current window's active tab and the data in the persistent storage
      */
 
     const [ tags, links, tagsLinks ] = await Promise.all([
@@ -62,7 +62,7 @@ export const initOpenTabsState = async (openTabs) => {
     };
 };
 
-export const appToStorage = async (tags, currentLink) => {
+export const tagsStateToStorage = async (tags, currentLink) => {
     // TODO: if any of the set storage calls fail, retry that which failed. If retry can't succeed, rollback those that succeeded
 
     if (currentLink === undefined || currentLink === null) return;

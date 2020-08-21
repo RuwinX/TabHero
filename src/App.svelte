@@ -9,16 +9,16 @@
     import Main from './pages/Main.svelte';
 
     import { getCurrentTab, registerOnTabUpdate } from './services/chrome';
-    import { initAppState, appToStorage } from './sync';
+    import { initTagsState, tagsStateToStorage } from './sync';
 
     onMount(async () => {
         const currentTab = await getCurrentTab();
-        const { tags, currentLink } = await initAppState(currentTab);
+        const { tags, currentLink } = await initTagsState(currentTab);
         currentTabTags.set(tags);
         currentTabLink.set(currentLink);
 
         const removeListener = registerOnTabUpdate(async (newTab) => {
-            const { tags, currentLink } = await initAppState(newTab);
+            const { tags, currentLink } = await initTagsState(newTab);
             currentTabTags.set(tags);
             currentTabLink.set(currentLink);
         });
@@ -33,7 +33,7 @@
     });
 
     const unsubscribe = currentTabTags.subscribe(async tags => {
-        await appToStorage(get(currentTabTags), get(currentTabLink));
+        await tagsStateToStorage(get(currentTabTags), get(currentTabLink));
     });
 
     onDestroy(unsubscribe);
