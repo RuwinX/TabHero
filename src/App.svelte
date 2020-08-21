@@ -1,13 +1,11 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
     import { get } from 'svelte/store';
-    import { uniqueId } from './utils';
-
-    import { currentTabTags, currentTabLink } from './store.js';
 
     import TopBar from './components/TopBar.svelte';
     import Main from './pages/Main.svelte';
 
+    import { currentTabTags, currentTabLink } from './store.js';
     import { getCurrentTab, registerOnTabUpdate } from './services/chrome';
     import { initTagsState, tagsStateToStorage } from './sync';
 
@@ -22,10 +20,6 @@
             currentTabTags.set(tags);
             currentTabLink.set(currentLink);
         });
-
-        window.onclick = () => {
-            console.log(uniqueId());
-        };
 
         return async () => {
             removeListener();
