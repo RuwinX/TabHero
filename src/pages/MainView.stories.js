@@ -1,10 +1,10 @@
 import { action } from '@storybook/addon-actions';
 
-import MainView from './MainView.svelte';
+import MainViewStoryWrapper from './MainViewStoryWrapper.svelte';
 
 export default {
     title: 'Pages/MainView',
-    component: MainView,
+    component: MainViewStoryWrapper,
 };
 
 const tags = [
@@ -22,7 +22,7 @@ const tags = [
 ];
 
 export const Default = () => ({
-    Component: MainView,
+    Component: MainViewStoryWrapper,
     props: {
         tags: tags,
         currentTabUrl: 'www.google.co.in',
@@ -36,7 +36,7 @@ export const Default = () => ({
 });
 
 export const NoTagsExist = () => ({
-    Component: MainView,
+    Component: MainViewStoryWrapper,
     props: {
         tags: [],
         currentTabUrl: 'www.google.co.in',
@@ -50,7 +50,7 @@ export const NoTagsExist = () => ({
 });
 
 export const AddTagsCaseInsensitiveInputButNoMatch = () => ({
-    Component: MainView,
+    Component: MainViewStoryWrapper,
     props: {
         tags: tags,
         currentTabUrl: 'www.google.co.in',

@@ -1,8 +1,8 @@
-import OpenTabsView from './OpenTabsView.svelte';
+import OpenTabsViewStoryWrapper from './OpenTabsViewStoryWrapper.svelte';
 
 export default {
     title: 'Pages/OpenTabsView',
-    component: OpenTabsView,
+    component: OpenTabsViewStoryWrapper,
 };
 
 const links = [{
@@ -28,7 +28,7 @@ const links = [{
 }];
 
 export const OneTab = () => ({
-    Component: OpenTabsView,
+    Component: OpenTabsViewStoryWrapper,
     props: {
         links: [links[0]]
     },
@@ -36,7 +36,7 @@ export const OneTab = () => ({
 });
 
 export const ManyTabs = () => ({
-    Component: OpenTabsView,
+    Component: OpenTabsViewStoryWrapper,
     props: {
         links: [...links, ...links, ...links, ...links, ...links, ...links]
     },
