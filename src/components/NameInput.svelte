@@ -1,12 +1,6 @@
 <script>
-    import { twelveHourTime } from '../utils';
-
     export let value = '';
-
-    $: if (value === '') {
-        const currentDate = new Date();
-        value = `${twelveHourTime(currentDate)}, ${currentDate.toDateString()}`;
-    }
+    export let placeholder = 'Enter a value';
 </script>
 
 <style>
@@ -23,5 +17,5 @@
 
 <input
     bind:value
+    {placeholder}
     type="text">
-

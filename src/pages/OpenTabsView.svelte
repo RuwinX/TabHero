@@ -8,8 +8,15 @@
     import NameInput from '../components/NameInput.svelte';
     import NavLink from '../components/NavLink.svelte';
 
+    import { twelveHourTime } from '../utils';
+
     export let links = [];
     export let collectionName = '';
+
+    $: if (collectionName === '') {
+        const currentDate = new Date();
+        collectionName = `${twelveHourTime(currentDate)}, ${currentDate.toDateString()}`;
+    }
 </script>
 
 <style>
@@ -29,7 +36,7 @@
             </nav>
         </div>
         <div class="row center">
-            <NameInput bind:value={collectionName} />
+            <NameInput bind:value={collectionName} placeholder="Enter a name for your collection" />
         </div>
         <div class="row center">
             <Info content={[

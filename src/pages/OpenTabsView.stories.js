@@ -30,7 +30,8 @@ const links = [{
 export const OneTab = () => ({
     Component: OpenTabsViewStoryWrapper,
     props: {
-        links: [links[0]]
+        links: [links[0]],
+        collectionName: 'foobar',
     },
     on: {},
 });
@@ -38,7 +39,17 @@ export const OneTab = () => ({
 export const ManyTabs = () => ({
     Component: OpenTabsViewStoryWrapper,
     props: {
-        links: [...links, ...links, ...links, ...links, ...links, ...links]
+        links: [...links, ...links, ...links, ...links, ...links, ...links],
+        collectionName: 'foobar',
+    },
+    on: {},
+});
+
+export const NoCollectionName = () => ({
+    Component: OpenTabsViewStoryWrapper,
+    props: {
+        links: [...links, ...links, ...links, ...links, ...links, ...links],
+        collectionName: '',
     },
     on: {},
 });

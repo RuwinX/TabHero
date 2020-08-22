@@ -3,10 +3,12 @@
     import OpenTabsView from './OpenTabsView.svelte';
 
     export let links;
+    export let collectionName;
 </script>
 
 <Router>
     <OpenTabsView
-        {links} />
+        {links}
+        {collectionName} />
 </Router>
 
