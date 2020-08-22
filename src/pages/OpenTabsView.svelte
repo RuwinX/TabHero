@@ -34,7 +34,7 @@
         <div class="row center">
             <Info content={[
                 [false, 'You have'],
-                [true, `${links.length} tabs`],
+                [true, `${links.length} tab${links.length !== 1 ? 's' : ''}`],
                 [false, 'currently open'],
             ]}/>
         </div>

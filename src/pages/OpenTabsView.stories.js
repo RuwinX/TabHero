@@ -27,6 +27,14 @@ const links = [{
     faviconUrl: 'https://medium.com/favicon.ico'
 }];
 
+export const OneTab = () => ({
+    Component: OpenTabsView,
+    props: {
+        links: [links[0]]
+    },
+    on: {},
+});
+
 export const ManyTabs = () => ({
     Component: OpenTabsView,
     props: {
