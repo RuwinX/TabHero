@@ -21,6 +21,7 @@
     .url-text {
         font-size: var(--font-size-md);
         overflow-x: hidden;
+        overflow-y: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         padding-left: 1rem;
