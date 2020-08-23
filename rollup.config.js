@@ -50,7 +50,11 @@ export default {
 		// instead of npm run dev), minify
 		production && terser(),
 
-		postcss(),
+		postcss({
+			inject: {
+				insertAt: 'top'
+			}
+		}),
 
 		injectProcessEnv({
 			NODE_ENV: 'production',

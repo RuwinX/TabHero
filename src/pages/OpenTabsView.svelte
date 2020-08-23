@@ -1,12 +1,14 @@
 <script>
     import { Link } from 'svelte-routing';
 
-    import LinksList from '../components/LinksList.svelte';
-    import Heading from '../components/Heading.svelte';
-    import ActionButton from '../components/ActionButton.svelte';
-    import Info from '../components/Info.svelte';
-    import NameInput from '../components/NameInput.svelte';
-    import NavLink from '../components/NavLink.svelte';
+    import {
+        LinksList,
+        Heading,
+        ActionButton,
+        Info,
+        Input,
+        NavLink
+    } from '@tabhero/svelte-components';
 
     import { twelveHourTime } from '../utils';
 
@@ -36,7 +38,7 @@
             </nav>
         </div>
         <div class="row center">
-            <NameInput bind:value={collectionName} placeholder="Enter a name for your collection" />
+            <Input bind:value={collectionName} placeholder="Enter a name for your collection" />
         </div>
         <div class="row center">
             <Info content={[

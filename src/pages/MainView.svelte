@@ -1,11 +1,13 @@
 <script>
     import { Link } from 'svelte-routing';
 
-    import ActionButton from '../components/ActionButton.svelte';
-    import SearchButton from '../components/SearchButton.svelte';
-    import TagPages from '../components/TagPages.svelte';
-    import AddTagBar from '../components/AddTagBar.svelte';
-    import Heading from '../components/Heading.svelte';
+    import {
+        ActionButton,
+        SearchButton,
+        TagPages,
+        AddTagBar,
+        Heading
+    } from '@tabhero/svelte-components';
 
     export let tags = [];
     export let currentTabUrl = '';
